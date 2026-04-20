@@ -1,0 +1,1154 @@
+<!DOCTYPE html>
+
+<html class="light" lang="vi"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>PETT - Cửa hàng chăm sóc thú cưng</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Be+Vietnam+Pro:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-tertiary-container": "#443a00",
+                    "surface-container-lowest": "#ffffff",
+                    "surface": "#fbfaee",
+                    "on-tertiary": "#ffffff",
+                    "surface-container-highest": "#e4e3d7",
+                    "background": "#fbfaee",
+                    "outline": "#6c7a77",
+                    "on-secondary-container": "#6d0010",
+                    "secondary": "#ae2f34",
+                    "on-primary-fixed": "#00201c",
+                    "surface-container-low": "#f5f4e8",
+                    "secondary-fixed-dim": "#ffb3b0",
+                    "surface-container-high": "#e9e9dd",
+                    "tertiary-fixed-dim": "#dec651",
+                    "on-secondary-fixed": "#410006",
+                    "on-primary-fixed-variant": "#005048",
+                    "on-error-container": "#93000a",
+                    "on-error": "#ffffff",
+                    "tertiary-fixed": "#fbe36a",
+                    "primary-fixed": "#71f8e4",
+                    "inverse-primary": "#4fdbc8",
+                    "primary-container": "#14b8a6",
+                    "tertiary": "#6d5e00",
+                    "secondary-fixed": "#ffdad8",
+                    "on-primary": "#ffffff",
+                    "on-secondary": "#ffffff",
+                    "on-primary-container": "#00423b",
+                    "surface-tint": "#006b5f",
+                    "tertiary-container": "#baa432",
+                    "secondary-container": "#ff6b6b",
+                    "inverse-on-surface": "#f2f1e5",
+                    "error": "#ba1a1a",
+                    "error-container": "#ffdad6",
+                    "surface-dim": "#dbdbcf",
+                    "surface-container": "#efeee3",
+                    "primary-fixed-dim": "#4fdbc8",
+                    "on-tertiary-fixed-variant": "#524600",
+                    "inverse-surface": "#303129",
+                    "surface-bright": "#fbfaee",
+                    "on-surface": "#1b1c15",
+                    "on-tertiary-fixed": "#211b00",
+                    "on-background": "#1b1c15",
+                    "surface-variant": "#e4e3d7",
+                    "on-secondary-fixed-variant": "#8c1520",
+                    "primary": "#006b5f",
+                    "on-surface-variant": "#3c4947",
+                    "outline-variant": "#bbcac6"
+            },
+            "borderRadius": {
+                    "DEFAULT": "1rem",
+                    "lg": "2rem",
+                    "xl": "3rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Plus Jakarta Sans"],
+                    "body": ["Be Vietnam Pro"],
+                    "label": ["Plus Jakarta Sans"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+          font-family: 'Be Vietnam Pro', sans-serif;
+        }
+        @keyframes splitRevealFromLeft {
+          from {
+            opacity: 0;
+            transform: translate3d(-36px, 0, 0);
+          }
+          to {
+            opacity: 1;
+            transform: translate3d(0, 0, 0);
+          }
+        }
+        @keyframes splitRevealFromRight {
+          from {
+            opacity: 0;
+            transform: translate3d(36px, 0, 0);
+          }
+          to {
+            opacity: 1;
+            transform: translate3d(0, 0, 0);
+          }
+        }
+        .split-reveal-left {
+          opacity: 0;
+          transform: translate3d(-36px, 0, 0);
+        }
+        .split-reveal-left.is-visible {
+          animation: splitRevealFromLeft 680ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
+          animation-delay: var(--split-delay, 90ms);
+        }
+        .split-reveal-right {
+          opacity: 0;
+          transform: translate3d(36px, 0, 0);
+        }
+        .split-reveal-right.is-visible {
+          animation: splitRevealFromRight 680ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
+          animation-delay: var(--split-delay, 90ms);
+        }
+        h1, h2, h3, .font-headline { font-family: 'Plus Jakarta Sans', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .tonal-transition { transition: background-color 0.3s ease; }
+        .glass-header {
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+        }
+        @media (prefers-reduced-motion: reduce) {
+          .split-reveal-left,
+          .split-reveal-right {
+            animation: none !important;
+            opacity: 1 !important;
+            transform: none !important;
+          }
+        }
+        :root {
+          --shop-nav-height: clamp(68px, 5vw, 84px);
+          --shop-hero-gap: clamp(0.75rem, 1.2vw, 1.25rem);
+          --shop-hero-aspect: 3 / 2;
+          --shop-hero-aspect-md: 16 / 7;
+          --shop-hero-aspect-lg: 3 / 1;
+        }
+        .shop-main {
+          padding-top: calc(var(--shop-nav-height) + var(--shop-hero-gap));
+        }
+        .shop-hero {
+          margin-bottom: var(--shop-hero-gap);
+          aspect-ratio: var(--shop-hero-aspect);
+        }
+        .shop-hero-image {
+          object-position: 50% 56%;
+          opacity: 1;
+          mix-blend-mode: normal;
+        }
+        .shop-hero-copy-shade {
+          background: linear-gradient(
+            90deg,
+            rgba(251, 250, 238, 0.95) 0%,
+            rgba(251, 250, 238, 0.86) 24%,
+            rgba(251, 250, 238, 0.58) 44%,
+            rgba(251, 250, 238, 0.24) 60%,
+            rgba(251, 250, 238, 0.08) 70%,
+            rgba(251, 250, 238, 0) 78%,
+            rgba(251, 250, 238, 0) 100%
+          );
+        }
+        .shop-hero-right-soften {
+          background: linear-gradient(
+            90deg,
+            rgba(251, 250, 238, 0) 62%,
+            rgba(251, 250, 238, 0.04) 74%,
+            rgba(251, 250, 238, 0.08) 86%,
+            rgba(251, 250, 238, 0.12) 100%
+          );
+        }
+        @media (min-width: 768px) {
+          .shop-hero {
+            aspect-ratio: var(--shop-hero-aspect-md);
+          }
+          .shop-hero-image {
+            object-position: 50% 60%;
+          }
+        }
+        @media (min-width: 1280px) {
+          .shop-hero {
+            aspect-ratio: var(--shop-hero-aspect-lg);
+          }
+          .shop-hero-image {
+            object-position: 50% 64%;
+          }
+        }
+        .shop-sidebar-sticky {
+          top: calc(var(--shop-nav-height) + var(--shop-hero-gap));
+        }
+        .sort-chip {
+          border: 1px solid #d7d8cc;
+          background: #f5f4e8;
+          color: #3c4947;
+          border-radius: 9999px;
+          padding: 0.4rem 0.85rem;
+          font-size: 0.75rem;
+          font-weight: 700;
+          letter-spacing: 0.02em;
+          text-transform: uppercase;
+          transition: all 0.2s ease;
+        }
+        .sort-chip:hover {
+          border-color: #006b5f;
+          color: #005147;
+          background: #efeee3;
+        }
+        .sort-chip-active {
+          background: #006b5f;
+          border-color: #006b5f;
+          color: #ffffff;
+          box-shadow: 0 6px 18px rgba(0, 107, 95, 0.24);
+        }
+        .sort-chip.sort-chip-active:hover {
+          background: #0b7a6d;
+          border-color: #0b7a6d;
+          color: #ffffff;
+          box-shadow: 0 8px 22px rgba(0, 107, 95, 0.34);
+        }
+        .product-search {
+          display: flex;
+          align-items: center;
+          gap: 0.5rem;
+          background: #f5f4e8;
+          border: 1px solid #d7d8cc;
+          border-radius: 9999px;
+          padding: 0.35rem 0.5rem;
+          min-width: min(100%, 460px);
+        }
+        .product-search:focus-within {
+          border-color: #006b5f;
+          box-shadow: 0 0 0 3px rgba(0, 107, 95, 0.15);
+        }
+        .product-search button {
+          width: 2rem;
+          height: 2rem;
+          border: 0;
+          background: #e9e9dd;
+          color: #3c4947;
+          border-radius: 9999px;
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          cursor: pointer;
+        }
+        .product-search button:hover {
+          background: #006b5f;
+          color: #ffffff;
+        }
+        .product-search input {
+          border: 0;
+          background: transparent;
+          color: #1b1c15;
+          width: 100%;
+          font-size: 0.95rem;
+          font-weight: 500;
+          outline: none;
+          box-shadow: none;
+          -webkit-appearance: none;
+          appearance: none;
+        }
+        .product-search input:focus,
+        .product-search input:focus-visible {
+          outline: none !important;
+          border: 0 !important;
+          box-shadow: none !important;
+        }
+        .product-search input[type="search"]::-webkit-search-decoration,
+        .product-search input[type="search"]::-webkit-search-cancel-button,
+        .product-search input[type="search"]::-webkit-search-results-button,
+        .product-search input[type="search"]::-webkit-search-results-decoration {
+          -webkit-appearance: none;
+          appearance: none;
+          display: none;
+        }
+        .search-clear {
+          width: 1.8rem;
+          height: 1.8rem;
+          border: 0;
+          border-radius: 9999px;
+          background: #e4e3d7;
+          color: #3c4947;
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          cursor: pointer;
+        }
+        .search-clear:hover {
+          background: #d7d8cc;
+        }
+        .search-clear.hidden {
+          display: none;
+        }
+        .empty-products {
+          display: none;
+          margin-top: 2rem;
+          padding: 2.5rem 1.5rem;
+          border-radius: 2rem;
+          background: #f5f4e8;
+          text-align: center;
+        }
+        .empty-products.show {
+          display: block;
+        }
+        .product-add-btn {
+          display: none !important;
+        }
+        .inline-action-row {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          align-items: center;
+          gap: 0.45rem;
+          margin-top: 0.55rem;
+          width: 100%;
+        }
+        .inline-add-btn,
+        .inline-buy-btn {
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          gap: 0.35rem;
+          border: 0;
+          border-radius: 9999px;
+          font-family: 'Plus Jakarta Sans', sans-serif;
+          font-size: 0.88rem;
+          font-weight: 800;
+          letter-spacing: 0.01em;
+          padding: 0.62rem 0.9rem;
+          cursor: pointer;
+          transition: all 0.2s ease;
+          width: 100%;
+          white-space: nowrap;
+        }
+        .inline-add-btn {
+          background: #e8f3f1;
+          color: #006b5f;
+          border: 1px solid #bddad4;
+        }
+        .inline-add-btn:hover {
+          background: #d7ebe7;
+          border-color: #9ccac2;
+        }
+        .inline-buy-btn {
+          background: #006b5f;
+          color: #ffffff;
+          border: 0;
+        }
+        .inline-buy-btn:hover {
+          background: #0b7a6d;
+        }
+        .pet-filter-btn {
+          border: 1px solid #d7d8cc;
+          background: #f5f4e8;
+          color: #3c4947;
+          border-radius: 9999px;
+          padding: 0.45rem 0.9rem;
+          font-size: 0.78rem;
+          font-weight: 700;
+          display: inline-flex;
+          align-items: center;
+          gap: 0.4rem;
+          transition: all 0.2s ease;
+        }
+        .pet-filter-btn.is-active {
+          border-color: #006b5f;
+          background: #006b5f;
+          color: #ffffff;
+        }
+        [data-product-grid] {
+          align-items: stretch;
+        }
+        [data-product-card] {
+          height: 100%;
+          background: #f1efe3;
+          border: 1px solid #e1decd;
+          border-radius: 1.75rem;
+          padding: 0.9rem;
+          box-shadow: 0 10px 26px rgba(24, 32, 30, 0.05);
+          transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
+        }
+        [data-product-card]:hover {
+          transform: translateY(-2px);
+          border-color: #cfd7c8;
+          box-shadow: 0 16px 34px rgba(24, 32, 30, 0.08);
+        }
+        [data-product-card] > .px-1 {
+          display: flex;
+          flex-direction: column;
+          flex: 1;
+        }
+        [data-product-card] h3 {
+          min-height: 3rem;
+        }
+        [data-product-card] p.text-sm.text-on-surface-variant {
+          display: none;
+        }
+        @media (max-width: 768px) {
+          .inline-action-row {
+            width: 100%;
+          }
+          .inline-add-btn,
+          .inline-buy-btn {
+            width: 100%;
+            justify-content: center;
+            font-size: 0.82rem;
+          }
+          [data-product-card] h3,
+          [data-product-card] p.text-sm.text-on-surface-variant {
+            min-height: 0;
+          }
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface selection:bg-primary-container selection:text-on-primary-container">
+<!-- Top Navigation Bar -->
+<header id="shop-top-header" class="fixed top-0 w-full z-50 bg-surface/70 backdrop-blur-md shadow-sm">
+<nav class="flex justify-between items-center w-full px-6 py-4 max-w-7xl mx-auto">
+<a class="text-4xl font-black tracking-tighter text-primary font-headline uppercase" href="/" data-route="/">PETT</a>
+<div class="hidden md:flex items-center gap-2 font-label text-sm font-semibold tracking-tight">
+<a class="px-5 py-2 rounded-full bg-primary text-white shadow-md shadow-primary/30 font-bold" href="/shop">Cửa hàng</a>
+<a class="px-5 py-2 rounded-full text-on-surface hover:bg-surface-container-high hover:text-primary transition-all duration-200" href="/blog">Blog</a>
+<a class="px-5 py-2 rounded-full text-on-surface hover:bg-surface-container-high hover:text-primary transition-all duration-200" href="/goi-dinh-ky">Gói định kỳ</a>
+</div>
+<div class="flex items-center gap-4">
+<a href="/cart" data-route="/cart" class="p-2 text-on-surface-variant hover:bg-surface-container-high rounded-full transition-all active:scale-95 active:opacity-80 flex items-center justify-center"><span class="material-symbols-outlined">shopping_cart</span></a>
+<a href="/login" data-route="/login" class="p-2 text-on-surface-variant hover:bg-surface-container-high rounded-full transition-all active:scale-95 active:opacity-80 flex items-center justify-center"><span class="material-symbols-outlined">person</span></a>
+</div>
+</nav>
+</header>
+<main class="shop-main pb-12 max-w-7xl mx-auto px-6">
+<!-- Hero Section -->
+<section class="shop-hero relative rounded-xl overflow-hidden bg-surface-container-low flex items-center">
+<div class="absolute inset-0 z-0 overflow-hidden split-reveal-right" style="--split-delay: 120ms;">
+<img class="shop-hero-image w-full h-full object-cover" data-alt="Sunlit modern living room with two cozy pet beds by a large window" src="/images/products/cat-litter-2.webp"/>
+<div class="shop-hero-copy-shade absolute inset-0"></div>
+<div class="shop-hero-right-soften absolute inset-0"></div>
+</div>
+<div class="relative z-10 px-6 md:px-12 md:w-2/3 split-reveal-left" style="--split-delay: 80ms;">
+<span class="inline-block px-3 py-1 bg-tertiary-container text-on-tertiary-container text-xs font-bold tracking-widest rounded-sm mb-4 uppercase">Bộ sưu tập mới</span>
+<h1 class="text-[clamp(2.1rem,4.7vw,3.9rem)] font-headline font-extrabold tracking-tighter text-on-surface mb-6 leading-none">
+                    Chăm sóc trọn vẹn cho <br/><span class="text-primary">thú cưng.</span>
+</h1>
+<p class="text-lg text-on-surface-variant max-w-md mb-8">
+          Khám phá thực phẩm chất lượng cao và phụ kiện hữu ích cho cuộc sống năng động cùng thú cưng.
+        </p>
+</div>
+</section>
+<div class="flex flex-col lg:flex-row gap-12">
+<!-- Sidebar Filters -->
+<aside class="lg:w-64 shrink-0 split-reveal-left" style="--split-delay: 180ms;">
+<div class="shop-sidebar-sticky sticky space-y-8">
+<div>
+<h3 class="font-headline font-bold text-lg mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">filter_list</span> Danh mục
+                        </h3>
+<div class="flex flex-wrap lg:flex-col gap-2">
+<button class="category-filter flex items-center justify-between px-4 py-2 rounded-full bg-tertiary-fixed text-on-tertiary-fixed font-medium text-sm transition-all" data-filter="all">
+                Tất cả sản phẩm <span class="material-symbols-outlined text-sm filter-check">check</span>
+</button>
+<button class="category-filter flex items-center justify-between px-4 py-2 rounded-full bg-surface-container-highest/50 hover:bg-surface-container-highest text-on-surface-variant text-sm transition-all" data-filter="nutrition">
+                Dinh dưỡng <span class="material-symbols-outlined text-sm filter-check hidden">check</span>
+                            </button>
+<button class="category-filter flex items-center justify-between px-4 py-2 rounded-full bg-surface-container-highest/50 hover:bg-surface-container-highest text-on-surface-variant text-sm transition-all" data-filter="toys">
+                Đồ vận chuyển, nuôi nhốt <span class="material-symbols-outlined text-sm filter-check hidden">check</span>
+                            </button>
+<button class="category-filter flex items-center justify-between px-4 py-2 rounded-full bg-surface-container-highest/50 hover:bg-surface-container-highest text-on-surface-variant text-sm transition-all" data-filter="accessories">
+                Phụ kiện <span class="material-symbols-outlined text-sm filter-check hidden">check</span>
+                            </button>
+</div>
+</div>
+<div>
+<h3 class="font-headline font-bold text-lg mb-4">Loại thú cưng</h3>
+<div class="flex flex-wrap gap-2">
+<button class="pet-filter-btn is-active" data-pet-filter="dog" type="button">
+<span class="material-symbols-outlined text-sm">pets</span> Chó
+</button>
+<button class="pet-filter-btn is-active" data-pet-filter="cat" type="button">
+<span class="material-symbols-outlined text-sm">pets</span> Mèo
+</button>
+</div>
+</div>
+</div>
+
+<!-- Transport & Containment -->
+<div class="group relative flex flex-col" data-product-card data-category="toys" data-pet="dog,cat">
+<div class="product-image-frame relative aspect-4/5 rounded-xl overflow-hidden bg-surface-container mb-4">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" src="/images/products/vn-11134207-7r98o-lqdazi2he9tjdb.webp" alt="Balo vận chuyển thú cưng trong suốt màu hồng"/>
+</div>
+<div class="px-1">
+<div class="flex justify-between items-start mb-1"><h3 class="font-headline font-bold text-lg leading-tight text-on-surface group-hover:text-primary transition-colors">Balo Trong Suốt AirPod Hồng</h3><div class="flex items-center text-tertiary"><span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span><span class="text-xs font-bold ml-1">4.8</span></div></div>
+<p class="text-sm text-on-surface-variant mb-4">Balo phi hành gia cho chó mèo nhỏ, thoáng khí và tiện mang đi chơi.</p>
+<div class="flex items-center justify-between mt-auto"><span class="text-xl font-extrabold text-on-surface">1.250.000đ</span><button class="text-primary font-headline font-bold text-sm flex items-center gap-1 hover:gap-2 transition-all">Xem nhanh <span class="material-symbols-outlined text-sm">arrow_forward</span></button></div>
+</div>
+</div>
+
+<div class="group relative flex flex-col" data-product-card data-category="toys" data-pet="dog,cat">
+<div class="product-image-frame relative aspect-4/5 rounded-xl overflow-hidden bg-surface-container mb-4">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" src="/images/products/vn-11134207-7r98o-lqdazi2hbgone5.webp" alt="Balo vận chuyển thú cưng trong suốt màu vàng"/>
+</div>
+<div class="px-1">
+<div class="flex justify-between items-start mb-1"><h3 class="font-headline font-bold text-lg leading-tight text-on-surface group-hover:text-primary transition-colors">Balo Trong Suốt AirPod Vàng</h3><div class="flex items-center text-tertiary"><span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span><span class="text-xs font-bold ml-1">4.7</span></div></div>
+<p class="text-sm text-on-surface-variant mb-4">Khoang rộng cho thú cưng cỡ nhỏ, tiện di chuyển hàng ngày.</p>
+<div class="flex items-center justify-between mt-auto"><span class="text-xl font-extrabold text-on-surface">1.280.000đ</span><button class="text-primary font-headline font-bold text-sm flex items-center gap-1 hover:gap-2 transition-all">Xem nhanh <span class="material-symbols-outlined text-sm">arrow_forward</span></button></div>
+</div>
+</div>
+
+<div class="group relative flex flex-col" data-product-card data-category="toys" data-pet="dog,cat">
+<div class="product-image-frame relative aspect-4/5 rounded-xl overflow-hidden bg-surface-container mb-4">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" src="/images/products/vn-11134207-7r98o-lqdazi2hfodz42.webp" alt="Balo vận chuyển thú cưng trong suốt màu xám"/>
+</div>
+<div class="px-1">
+<div class="flex justify-between items-start mb-1"><h3 class="font-headline font-bold text-lg leading-tight text-on-surface group-hover:text-primary transition-colors">Balo Trong Suốt AirPod Xám</h3><div class="flex items-center text-tertiary"><span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span><span class="text-xs font-bold ml-1">4.6</span></div></div>
+<p class="text-sm text-on-surface-variant mb-4">Tông màu trung tính, dễ vệ sinh, dùng tốt cho cả chó và mèo.</p>
+<div class="flex items-center justify-between mt-auto"><span class="text-xl font-extrabold text-on-surface">1.190.000đ</span><button class="text-primary font-headline font-bold text-sm flex items-center gap-1 hover:gap-2 transition-all">Xem nhanh <span class="material-symbols-outlined text-sm">arrow_forward</span></button></div>
+</div>
+</div>
+
+<div class="group relative flex flex-col" data-product-card data-category="toys" data-pet="dog,cat">
+<div class="product-image-frame relative aspect-4/5 rounded-xl overflow-hidden bg-surface-container mb-4">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" src="/images/products/vn-11134207-7r98o-lqdazi2hmp87bd.webp" alt="Balo vận chuyển thú cưng trong suốt đen xanh"/>
+</div>
+<div class="px-1">
+<div class="flex justify-between items-start mb-1"><h3 class="font-headline font-bold text-lg leading-tight text-on-surface group-hover:text-primary transition-colors">Balo Trong Suốt Đen Xanh</h3><div class="flex items-center text-tertiary"><span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span><span class="text-xs font-bold ml-1">4.9</span></div></div>
+<p class="text-sm text-on-surface-variant mb-4">Phong cách cá tính, mặt trước chống va đập khi di chuyển.</p>
+<div class="flex items-center justify-between mt-auto"><span class="text-xl font-extrabold text-on-surface">1.340.000đ</span><button class="text-primary font-headline font-bold text-sm flex items-center gap-1 hover:gap-2 transition-all">Xem nhanh <span class="material-symbols-outlined text-sm">arrow_forward</span></button></div>
+</div>
+</div>
+
+<div class="group relative flex flex-col" data-product-card data-category="toys" data-pet="dog,cat">
+<div class="product-image-frame relative aspect-4/5 rounded-xl overflow-hidden bg-surface-container mb-4">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" src="/images/products/long-van-chuyen-cho-meo-aupet-bp27-pet-kennel1-400x400.webp" alt="Lồng vận chuyển cứng màu xanh"/>
+</div>
+<div class="px-1">
+<div class="flex justify-between items-start mb-1"><h3 class="font-headline font-bold text-lg leading-tight text-on-surface group-hover:text-primary transition-colors">Lồng Cứng Vận Chuyển Xanh</h3><div class="flex items-center text-tertiary"><span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span><span class="text-xs font-bold ml-1">4.6</span></div></div>
+<p class="text-sm text-on-surface-variant mb-4">Lồng nhựa cứng cửa thép, an toàn khi đi khám hoặc đi xa.</p>
+<div class="flex items-center justify-between mt-auto"><span class="text-xl font-extrabold text-on-surface">1.520.000đ</span><button class="text-primary font-headline font-bold text-sm flex items-center gap-1 hover:gap-2 transition-all">Xem nhanh <span class="material-symbols-outlined text-sm">arrow_forward</span></button></div>
+</div>
+</div>
+
+<div class="group relative flex flex-col" data-product-card data-category="toys" data-pet="dog,cat">
+<div class="product-image-frame relative aspect-4/5 rounded-xl overflow-hidden bg-surface-container mb-4">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" src="/images/products/long-van-chuyen-cho-meo-aupet-bp27-pet-kennel2-400x400.webp" alt="Lồng vận chuyển cứng màu hồng"/>
+</div>
+<div class="px-1">
+<div class="flex justify-between items-start mb-1"><h3 class="font-headline font-bold text-lg leading-tight text-on-surface group-hover:text-primary transition-colors">Lồng Cứng Vận Chuyển Hồng</h3><div class="flex items-center text-tertiary"><span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span><span class="text-xs font-bold ml-1">4.6</span></div></div>
+<p class="text-sm text-on-surface-variant mb-4">Khóa chắc chắn, tông màu nổi bật, phù hợp thú cưng nhỏ.</p>
+<div class="flex items-center justify-between mt-auto"><span class="text-xl font-extrabold text-on-surface">1.540.000đ</span><button class="text-primary font-headline font-bold text-sm flex items-center gap-1 hover:gap-2 transition-all">Xem nhanh <span class="material-symbols-outlined text-sm">arrow_forward</span></button></div>
+</div>
+</div>
+
+<div class="group relative flex flex-col" data-product-card data-category="toys" data-pet="dog,cat">
+<div class="product-image-frame relative aspect-4/5 rounded-xl overflow-hidden bg-surface-container mb-4">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" src="/images/products/chuong-sat-gap-cho-meo-nan-cung-paw-collapsible-crate.webp" alt="Chuồng sắt gấp nan cứng cho chó mèo"/>
+</div>
+<div class="px-1">
+<div class="flex justify-between items-start mb-1"><h3 class="font-headline font-bold text-lg leading-tight text-on-surface group-hover:text-primary transition-colors">Chuồng Sắt Gấp Paw Crate</h3><div class="flex items-center text-tertiary"><span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span><span class="text-xs font-bold ml-1">4.9</span></div></div>
+<p class="text-sm text-on-surface-variant mb-4">Chuồng nan thép cứng, có khay đáy tháo rời, phù hợp huấn luyện tại nhà.</p>
+<div class="flex items-center justify-between mt-auto"><span class="text-xl font-extrabold text-on-surface">1.690.000đ</span><button class="text-primary font-headline font-bold text-sm flex items-center gap-1 hover:gap-2 transition-all">Xem nhanh <span class="material-symbols-outlined text-sm">arrow_forward</span></button></div>
+</div>
+</div>
+</aside>
+<!-- Product Grid -->
+<div class="grow split-reveal-right" style="--split-delay: 240ms;">
+<div class="flex flex-col lg:flex-row justify-between lg:items-center gap-4 mb-8">
+<form class="product-search" role="search">
+<button type="submit">
+<span class="material-symbols-outlined text-[18px]">search</span>
+</button>
+<input id="product-search" type="search" placeholder="Tìm theo tên hoặc mô tả sản phẩm..." autocomplete="off"/>
+<button id="clear-search" class="search-clear hidden" type="button">
+<span class="material-symbols-outlined text-[16px]">close</span>
+</button>
+</form>
+<div class="flex items-center gap-3 bg-surface-container-low px-4 py-2 rounded-full">
+<span class="text-xs font-bold text-on-surface-variant uppercase tracking-wider">Sắp xếp theo:</span>
+<div class="flex items-center gap-2">
+<button class="sort-chip sort-chip-active" data-sort="popular" type="button">Phổ biến</button>
+<button class="sort-chip" data-sort="price" type="button">Giá ↑</button>
+<button class="sort-chip" data-sort="newest" type="button">Mới nhất</button>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-x-8 gap-y-12" data-product-grid>
+<!-- Product Card 1 -->
+<div class="group relative flex flex-col" data-product-card data-category="nutrition" data-pet="dog">
+<div class="product-image-frame relative aspect-4/5 rounded-xl overflow-hidden bg-surface-container mb-4">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="Bánh thưởng cao cấp hương cá ngừ cho chó" src="/images/products/Gemini_Generated_Image_lqjqpalqjqpalqjq.webp"/>
+<button class="product-add-btn absolute bottom-4 right-4 w-12 h-12 bg-primary text-white rounded-full shadow-lg transition-all duration-300 flex items-center justify-center">
+<span class="material-symbols-outlined">add_shopping_cart</span>
+</button>
+</div>
+<div class="px-1">
+<div class="flex justify-between items-start mb-1">
+<h3 class="font-headline font-bold text-lg leading-tight text-on-surface group-hover:text-primary transition-colors">Bánh Thưởng Cao Cấp Hương Cá Ngừ</h3>
+<div class="flex items-center text-tertiary">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="text-xs font-bold ml-1">4.8</span>
+</div>
+</div>
+<p class="text-sm text-on-surface-variant mb-4">Thích hợp huấn luyện và ăn nhẹ, với hương vị cá ngừ tươi cùng Omega-3.</p>
+<div class="flex items-center justify-between mt-auto">
+<span class="text-xl font-extrabold text-on-surface">520.000đ</span>
+<button class="text-primary font-headline font-bold text-sm flex items-center gap-1 hover:gap-2 transition-all">
+                                    Xem nhanh <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Product Card 2 -->
+<div class="group relative flex flex-col" data-product-card data-category="nutrition" data-pet="dog">
+<div class="product-image-frame relative aspect-4/5 rounded-xl overflow-hidden bg-surface-container mb-4">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="Xương bàn chải cao cấp hương thịt gà cho chó" src="/images/products/Gemini_Generated_Image_lju2vdlju2vdlju2.webp"/>
+<button class="product-add-btn absolute bottom-4 right-4 w-12 h-12 bg-primary text-white rounded-full shadow-lg transition-all duration-300 flex items-center justify-center">
+<span class="material-symbols-outlined">add_shopping_cart</span>
+</button>
+</div>
+<div class="px-1">
+<div class="flex justify-between items-start mb-1">
+<h3 class="font-headline font-bold text-lg leading-tight text-on-surface group-hover:text-primary transition-colors">Xương Bàn Chải Cao Cấp Hương Thịt Gà</h3>
+<div class="flex items-center text-tertiary">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="text-xs font-bold ml-1">4.9</span>
+</div>
+</div>
+<p class="text-sm text-on-surface-variant mb-4">Hỗ trợ làm sạch răng, hương thịt gà tươi kết hợp canxi cho sức khỏe răng miệng.</p>
+<div class="flex items-center justify-between mt-auto">
+<span class="text-xl font-extrabold text-on-surface">480.000đ</span>
+<button class="text-primary font-headline font-bold text-sm flex items-center gap-1 hover:gap-2 transition-all">
+                                    Xem nhanh <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Product Card 3 -->
+<div class="group relative flex flex-col" data-product-card data-category="nutrition" data-pet="dog">
+<div class="product-image-frame relative aspect-4/5 rounded-xl overflow-hidden bg-surface-container mb-4">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="Thức ăn mềm cao cấp dành cho chó cưng" src="/images/products/Gemini_Generated_Image_gfiddygfiddygfid.webp"/>
+<button class="product-add-btn absolute bottom-4 right-4 w-12 h-12 bg-primary text-white rounded-full shadow-lg transition-all duration-300 flex items-center justify-center">
+<span class="material-symbols-outlined">add_shopping_cart</span>
+</button>
+</div>
+<div class="px-1">
+<div class="flex justify-between items-start mb-1">
+<h3 class="font-headline font-bold text-lg leading-tight text-on-surface group-hover:text-primary transition-colors">Thức Ăn Mềm Cao Cấp Dành Cho Chó Cưng</h3>
+<div class="flex items-center text-tertiary">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="text-xs font-bold ml-1">4.7</span>
+</div>
+</div>
+<p class="text-sm text-on-surface-variant mb-4">Công thức dinh dưỡng toàn diện với thịt gà tươi và rau củ tự nhiên.</p>
+<div class="flex items-center justify-between mt-auto">
+<span class="text-xl font-extrabold text-on-surface">560.000đ</span>
+<button class="text-primary font-headline font-bold text-sm flex items-center gap-1 hover:gap-2 transition-all">
+                                    Xem nhanh <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Product Card 4 -->
+<div class="group relative flex flex-col" data-product-card data-category="nutrition" data-pet="dog">
+<div class="product-image-frame relative aspect-4/5 rounded-xl overflow-hidden bg-surface-container mb-4">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="Thức ăn khô cao cấp dành cho chó cưng" src="/images/products/Gemini_Generated_Image_dop9kydop9kydop9.webp"/>
+<button class="product-add-btn absolute bottom-4 right-4 w-12 h-12 bg-primary text-white rounded-full shadow-lg transition-all duration-300 flex items-center justify-center">
+<span class="material-symbols-outlined">add_shopping_cart</span>
+</button>
+</div>
+<div class="px-1">
+<div class="flex justify-between items-start mb-1">
+<h3 class="font-headline font-bold text-lg leading-tight text-on-surface group-hover:text-primary transition-colors">Thức Ăn Khô Cao Cấp Dành Cho Chó Cưng</h3>
+<div class="flex items-center text-tertiary">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="text-xs font-bold ml-1">4.8</span>
+</div>
+</div>
+<p class="text-sm text-on-surface-variant mb-4">Công thức dinh dưỡng toàn diện với thịt gà tươi và rau củ tự nhiên.</p>
+<div class="flex items-center justify-between mt-auto">
+<span class="text-xl font-extrabold text-on-surface">590.000đ</span>
+<button class="text-primary font-headline font-bold text-sm flex items-center gap-1 hover:gap-2 transition-all">
+                                    Xem nhanh <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+
+<!-- Product Card 5 (Cat) -->
+<div class="group relative flex flex-col" data-product-card data-category="nutrition" data-pet="cat">
+<div class="product-image-frame relative aspect-4/5 rounded-xl overflow-hidden bg-surface-container mb-4">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="Súp thưởng cao cấp vị gà và dứa cho mèo" src="/images/products/Gemini_Generated_Image_xanty3xanty3xant.webp"/>
+<button class="product-add-btn absolute bottom-4 right-4 w-12 h-12 bg-primary text-white rounded-full shadow-lg transition-all duration-300 flex items-center justify-center">
+<span class="material-symbols-outlined">add_shopping_cart</span>
+</button>
+</div>
+<div class="px-1">
+<div class="flex justify-between items-start mb-1">
+<h3 class="font-headline font-bold text-lg leading-tight text-on-surface group-hover:text-primary transition-colors">Súp Thưởng Cao Cấp Vị Gà &amp; Dứa</h3>
+<div class="flex items-center text-tertiary">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="text-xs font-bold ml-1">4.9</span>
+</div>
+</div>
+<p class="text-sm text-on-surface-variant mb-4">Thích hợp huấn luyện và ăn nhẹ, với thịt gà thật và nước ép dứa nguyên chất.</p>
+<div class="flex items-center justify-between mt-auto">
+<span class="text-xl font-extrabold text-on-surface">510.000đ</span>
+<button class="text-primary font-headline font-bold text-sm flex items-center gap-1 hover:gap-2 transition-all">
+                                    Xem nhanh <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+
+<!-- Product Card 6 (Cat) -->
+<div class="group relative flex flex-col" data-product-card data-category="nutrition" data-pet="cat">
+<div class="product-image-frame relative aspect-4/5 rounded-xl overflow-hidden bg-surface-container mb-4">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="Pate trái cây cao cấp dành cho mèo" src="/images/products/Gemini_Generated_Image_p3knslp3knslp3kn.webp"/>
+<button class="product-add-btn absolute bottom-4 right-4 w-12 h-12 bg-primary text-white rounded-full shadow-lg transition-all duration-300 flex items-center justify-center">
+<span class="material-symbols-outlined">add_shopping_cart</span>
+</button>
+</div>
+<div class="px-1">
+<div class="flex justify-between items-start mb-1">
+<h3 class="font-headline font-bold text-lg leading-tight text-on-surface group-hover:text-primary transition-colors">Pate Trái Cây Cao Cấp Dành Cho Mèo</h3>
+<div class="flex items-center text-tertiary">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="text-xs font-bold ml-1">4.7</span>
+</div>
+</div>
+<p class="text-sm text-on-surface-variant mb-4">Dinh dưỡng cân bằng từ trái cây tươi kết hợp đạm cá, mềm mịn dễ ăn cho mèo.</p>
+<div class="flex items-center justify-between mt-auto">
+<span class="text-xl font-extrabold text-on-surface">540.000đ</span>
+<button class="text-primary font-headline font-bold text-sm flex items-center gap-1 hover:gap-2 transition-all">
+                                    Xem nhanh <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+
+<!-- Product Card 7 (Cat) -->
+<div class="group relative flex flex-col" data-product-card data-category="nutrition" data-pet="cat">
+<div class="product-image-frame relative aspect-4/5 rounded-xl overflow-hidden bg-surface-container mb-4">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="Thức ăn khô cao cấp dành cho mèo cưng" src="/images/products/Gemini_Generated_Image_7xcwik7xcwik7xcw.webp"/>
+<button class="product-add-btn absolute bottom-4 right-4 w-12 h-12 bg-primary text-white rounded-full shadow-lg transition-all duration-300 flex items-center justify-center">
+<span class="material-symbols-outlined">add_shopping_cart</span>
+</button>
+</div>
+<div class="px-1">
+<div class="flex justify-between items-start mb-1">
+<h3 class="font-headline font-bold text-lg leading-tight text-on-surface group-hover:text-primary transition-colors">Thức Ăn Khô Cao Cấp Dành Cho Mèo Cưng</h3>
+<div class="flex items-center text-tertiary">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="text-xs font-bold ml-1">4.8</span>
+</div>
+</div>
+<p class="text-sm text-on-surface-variant mb-4">Công thức dinh dưỡng toàn diện với thịt gà tươi và rau củ tự nhiên cho mèo.</p>
+<div class="flex items-center justify-between mt-auto">
+<span class="text-xl font-extrabold text-on-surface">610.000đ</span>
+<button class="text-primary font-headline font-bold text-sm flex items-center gap-1 hover:gap-2 transition-all">
+                                    Xem nhanh <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+
+<!-- Accessories Cards -->
+<div class="group relative flex flex-col" data-product-card data-category="accessories" data-pet="dog,cat">
+<div class="product-image-frame relative aspect-4/5 rounded-xl overflow-hidden bg-surface-container mb-4">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB3nPOrwjl-QBSivYM9gh6DgvNC0w-tvDWJzSUUFqz5ciEJ9CnrocO2ykIgifMUx1ZPOEOM2X-8zhXap2qGa46rVWOqrKZD6IL4Ri6q41FVADmpDyiY9X-RRWXg2usL1b3e5fD5-77UYlAvw00eEG8GBdOcMqpgkuYSEYks_SfMoSz8KZDTasbaL39VGc54SyTNMVj9n_CsN2KrDI7TNY3Sy35Td4enRbNrgCck4KUaXuLy5SWZD-JWyDXYN80kX9lEBMYH_C9y1Q" alt="Giường nệm bông êm ái cao cấp"/>
+<button class="product-add-btn absolute bottom-4 right-4 w-12 h-12 bg-primary text-white rounded-full shadow-lg transition-all duration-300 flex items-center justify-center"><span class="material-symbols-outlined">add_shopping_cart</span></button>
+</div>
+<div class="px-1">
+<div class="flex justify-between items-start mb-1"><h3 class="font-headline font-bold text-lg leading-tight text-on-surface group-hover:text-primary transition-colors">Giường nệm bông êm ái cao cấp</h3><div class="flex items-center text-tertiary"><span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span><span class="text-xs font-bold ml-1">4.8</span></div></div>
+<p class="text-sm text-on-surface-variant mb-4">Nệm êm ái, ôm thân, chất liệu mềm mại giúp thú cưng ngủ ngon và giữ ấm tốt hơn.</p>
+<div class="flex items-center justify-between mt-auto"><span class="text-xl font-extrabold text-on-surface">220.000đ</span><button class="text-primary font-headline font-bold text-sm flex items-center gap-1 hover:gap-2 transition-all">Xem nhanh <span class="material-symbols-outlined text-sm">arrow_forward</span></button></div>
+</div>
+</div>
+
+<div class="group relative flex flex-col" data-product-card data-category="accessories" data-pet="dog">
+<div class="product-image-frame relative aspect-4/5 rounded-xl overflow-hidden bg-white mb-4">
+<img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCyaqRtRGVS3agGTFAYzi6VzWZUdvY8MvmHeAS4dcChZcnh-f4S_am--brKrMk3gnH5rGoWTukLQhY4pGTlVcpycDoYY9YcZ3U1y7mD3Ykx-j_X0hvtkWxu7Y28KR7HA2RxIqIGN_-_k0V1cWxnQAhHTeCC8Nk-Gn0IU6eKP8ch0CCGXCcQIfAB6agWSZOJBviS7TDMccJWzrZ3RVFvZOgHHUpO_ypgWyOQXj355DtB5vqGYZabQ-P6Pib38xNaIpokhAFAgm8Oow" alt="Tháp cào móng 3 tầng cho mèo"/>
+<button class="product-add-btn absolute bottom-4 right-4 w-12 h-12 bg-primary text-white rounded-full shadow-lg transition-all duration-300 flex items-center justify-center"><span class="material-symbols-outlined">add_shopping_cart</span></button>
+</div>
+<div class="px-1">
+<div class="flex justify-between items-start mb-1"><h3 class="font-headline font-bold text-lg leading-tight text-on-surface group-hover:text-primary transition-colors">Tháp cào móng 3 tầng cho mèo</h3><div class="flex items-center text-tertiary"><span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span><span class="text-xs font-bold ml-1">4.9</span></div></div>
+<p class="text-sm text-on-surface-variant mb-4">Thiết kế nhiều tầng với trụ cào bền chắc, giúp mèo vận động và mài móng mỗi ngày.</p>
+<div class="flex items-center justify-between mt-auto"><span class="text-xl font-extrabold text-on-surface">320.000đ</span><button class="text-primary font-headline font-bold text-sm flex items-center gap-1 hover:gap-2 transition-all">Xem nhanh <span class="material-symbols-outlined text-sm">arrow_forward</span></button></div>
+</div>
+</div>
+
+<!-- Accessories Cards (Leash) -->
+<div class="group relative flex flex-col" data-product-card data-category="accessories" data-pet="dog,cat">
+<div class="product-image-frame relative aspect-4/5 rounded-xl overflow-hidden bg-surface-container mb-4">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" src="/images/products/download.jpg" alt="Bộ dây dắt da thật classic"/>
+<button class="product-add-btn absolute bottom-4 right-4 w-12 h-12 bg-primary text-white rounded-full shadow-lg transition-all duration-300 flex items-center justify-center"><span class="material-symbols-outlined">add_shopping_cart</span></button>
+</div>
+<div class="px-1">
+<div class="flex justify-between items-start mb-1"><h3 class="font-headline font-bold text-lg leading-tight text-on-surface group-hover:text-primary transition-colors">Bộ dây dắt da thật classic</h3><div class="flex items-center text-tertiary"><span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span><span class="text-xs font-bold ml-1">4.8</span></div></div>
+<p class="text-sm text-on-surface-variant mb-4">Dây dắt da thật cao cấp, chắc tay cầm, phù hợp đi dạo hằng ngày cho chó và mèo.</p>
+<div class="flex items-center justify-between mt-auto"><span class="text-xl font-extrabold text-on-surface">180.000đ</span><button class="text-primary font-headline font-bold text-sm flex items-center gap-1 hover:gap-2 transition-all">Xem nhanh <span class="material-symbols-outlined text-sm">arrow_forward</span></button></div>
+</div>
+</div>
+
+<div class="group relative flex flex-col" data-product-card data-category="accessories" data-pet="dog,cat">
+<div class="product-image-frame relative aspect-4/5 rounded-xl overflow-hidden bg-surface-container mb-4">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" src="/images/products/e6f5787eafd13e7ca8ace457f618cb63.jpg.webp" alt="Dây dắt tự rút tay cầm xanh đen"/>
+<button class="product-add-btn absolute bottom-4 right-4 w-12 h-12 bg-primary text-white rounded-full shadow-lg transition-all duration-300 flex items-center justify-center"><span class="material-symbols-outlined">add_shopping_cart</span></button>
+</div>
+<div class="px-1">
+<div class="flex justify-between items-start mb-1"><h3 class="font-headline font-bold text-lg leading-tight text-on-surface group-hover:text-primary transition-colors">Dây Dắt Tự Rút Flexi Xanh</h3><div class="flex items-center text-tertiary"><span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span><span class="text-xs font-bold ml-1">4.8</span></div></div>
+<p class="text-sm text-on-surface-variant mb-4">Cơ chế khóa nhanh bằng một nút bấm, dây dài linh hoạt khi đi dạo ngoài trời.</p>
+<div class="flex items-center justify-between mt-auto"><span class="text-xl font-extrabold text-on-surface">210.000đ</span><button class="text-primary font-headline font-bold text-sm flex items-center gap-1 hover:gap-2 transition-all">Xem nhanh <span class="material-symbols-outlined text-sm">arrow_forward</span></button></div>
+</div>
+</div>
+
+<div class="group relative flex flex-col" data-product-card data-category="accessories" data-pet="dog,cat">
+<div class="product-image-frame relative aspect-4/5 rounded-xl overflow-hidden bg-surface-container mb-4">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" src="/images/products/H63f04c9544344320bf6bf64f82889489W.jpg_300x300.avif" alt="Dây dắt thú cưng bản đen phiên bản AVIF"/>
+<button class="product-add-btn absolute bottom-4 right-4 w-12 h-12 bg-primary text-white rounded-full shadow-lg transition-all duration-300 flex items-center justify-center"><span class="material-symbols-outlined">add_shopping_cart</span></button>
+</div>
+<div class="px-1">
+<div class="flex justify-between items-start mb-1"><h3 class="font-headline font-bold text-lg leading-tight text-on-surface group-hover:text-primary transition-colors">Dây Dắt Bản Đen Essential</h3><div class="flex items-center text-tertiary"><span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span><span class="text-xs font-bold ml-1">4.6</span></div></div>
+<p class="text-sm text-on-surface-variant mb-4">Thiết kế tối giản, nhẹ tay cầm, phù hợp cho nhu cầu đi dạo hằng ngày.</p>
+<div class="flex items-center justify-between mt-auto"><span class="text-xl font-extrabold text-on-surface">120.000đ</span><button class="text-primary font-headline font-bold text-sm flex items-center gap-1 hover:gap-2 transition-all">Xem nhanh <span class="material-symbols-outlined text-sm">arrow_forward</span></button></div>
+</div>
+</div>
+
+<div class="group relative flex flex-col" data-product-card data-category="accessories" data-pet="dog,cat">
+<div class="product-image-frame relative aspect-4/5 rounded-xl overflow-hidden bg-surface-container mb-4">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" src="/images/products/H515cfae316ec4d9d83f805b7469821336.png_300x300.avif" alt="Dây dắt tự rút phiên bản AVIF"/>
+<button class="product-add-btn absolute bottom-4 right-4 w-12 h-12 bg-primary text-white rounded-full shadow-lg transition-all duration-300 flex items-center justify-center"><span class="material-symbols-outlined">add_shopping_cart</span></button>
+</div>
+<div class="px-1">
+<div class="flex justify-between items-start mb-1"><h3 class="font-headline font-bold text-lg leading-tight text-on-surface group-hover:text-primary transition-colors">Dây Dắt Tự Rút Flexi Pro</h3><div class="flex items-center text-tertiary"><span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span><span class="text-xs font-bold ml-1">4.8</span></div></div>
+<p class="text-sm text-on-surface-variant mb-4">Tay cầm công thái học, khóa hãm nhạy, dây trượt mượt cho trải nghiệm kiểm soát tốt.</p>
+<div class="flex items-center justify-between mt-auto"><span class="text-xl font-extrabold text-on-surface">230.000đ</span><button class="text-primary font-headline font-bold text-sm flex items-center gap-1 hover:gap-2 transition-all">Xem nhanh <span class="material-symbols-outlined text-sm">arrow_forward</span></button></div>
+</div>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="w-full rounded-t-[3rem] mt-20 bg-slate-50 dark:bg-slate-950 border-t border-slate-100 dark:border-slate-800">
+<div class="flex flex-col md:flex-row justify-between items-center px-12 py-16 gap-8 max-w-7xl mx-auto">
+<div>
+<p class="text-sm font-light leading-relaxed text-slate-500 dark:text-slate-400 text-center md:text-left">© 2024 PETT.</p>
+<div class="empty-products" id="empty-products" aria-live="polite">
+<p class="font-headline font-bold text-xl text-on-surface mb-2">Không tìm thấy sản phẩm phù hợp</p>
+<p class="text-on-surface-variant">Thử từ khóa khác hoặc đổi danh mục để xem thêm sản phẩm.</p>
+</div>
+</div>
+<div class="flex flex-wrap justify-center gap-8 text-sm font-light leading-relaxed">
+<a class="text-slate-500 dark:text-slate-400 hover:text-coral-500 transition-colors opacity-80 hover:opacity-100" href="#">Chính sách bảo mật</a>
+<a class="text-slate-500 dark:text-slate-400 hover:text-coral-500 transition-colors opacity-80 hover:opacity-100" href="#">Điều khoản dịch vụ</a>
+</div>
+<div class="flex gap-4">
+<div class="w-10 h-10 rounded-full bg-slate-200 dark:bg-slate-800 flex items-center justify-center cursor-pointer hover:bg-teal-500 hover:text-white transition-all">
+<span class="material-symbols-outlined text-xl" data-icon="mail">mail</span>
+</div>
+</div>
+</div>
+</footer>
+<script>
+  (function () {
+    const syncShopViewport = () => {
+      const header = document.getElementById('shop-top-header')
+      if (!header) return
+      const height = Math.ceil(header.getBoundingClientRect().height)
+      document.documentElement.style.setProperty('--shop-nav-height', `${height}px`)
+    }
+
+    const initViewportAnimations = () => {
+      const animatedElements = document.querySelectorAll('.split-reveal-left, .split-reveal-right, .reveal-up')
+      if (!animatedElements.length) return
+
+      animatedElements.forEach((element) => element.classList.add('is-visible'))
+    }
+
+    const buttons = document.querySelectorAll('.category-filter')
+    const petButtons = document.querySelectorAll('[data-pet-filter]')
+    const sortChips = document.querySelectorAll('.sort-chip')
+    const priceChip = document.querySelector('.sort-chip[data-sort="price"]')
+    const cards = document.querySelectorAll('[data-product-card]')
+    const grid = document.querySelector('[data-product-grid]')
+    const searchInput = document.getElementById('product-search')
+    const searchForm = document.querySelector('.product-search')
+    const clearSearchBtn = document.getElementById('clear-search')
+    const emptyState = document.getElementById('empty-products')
+    let isPriceAsc = true
+    let activeCategory = 'all'
+    let activePets = new Set(['dog', 'cat'])
+    let searchTerm = ''
+    let activeSort = 'popular'
+    const originalOrder = Array.from(cards)
+    const originalOrderIndex = new Map(originalOrder.map((card, index) => [card, index]))
+    const categoryPriority = {
+      nutrition: 0,
+      toys: 1,
+      accessories: 2,
+    }
+    const defaultOrder = Array.from(cards).sort((a, b) => {
+      const priorityA = categoryPriority[a.dataset.category] ?? Number.MAX_SAFE_INTEGER
+      const priorityB = categoryPriority[b.dataset.category] ?? Number.MAX_SAFE_INTEGER
+      if (priorityA !== priorityB) return priorityA - priorityB
+      return (originalOrderIndex.get(a) ?? 0) - (originalOrderIndex.get(b) ?? 0)
+    })
+
+    const activeClasses = ['bg-tertiary-fixed', 'text-on-tertiary-fixed', 'font-medium']
+    const inactiveClasses = ['bg-surface-container-highest/50', 'text-on-surface-variant']
+
+    const convertUsdToVndLabel = (label) => {
+      const match = (label || '').trim().match(/^\$(\d+(?:\.\d+)?)$/)
+      if (!match) return label
+      const usd = Number.parseFloat(match[1])
+      if (!Number.isFinite(usd)) return label
+      const vnd = Math.round(usd * 10000)
+      return `${vnd.toLocaleString('vi-VN')}đ`
+    }
+
+    const localizeProductCards = () => {
+      cards.forEach((card) => {
+        const priceEl = card.querySelector('.text-xl.font-extrabold')
+        if (priceEl) {
+          priceEl.textContent = convertUsdToVndLabel(priceEl.textContent || '')
+        }
+
+        const detailBtn = Array.from(card.querySelectorAll('button')).find((button) => {
+          const text = normalizeText(button.textContent)
+          return text.includes('xem nhanh')
+        })
+
+        if (detailBtn) {
+          detailBtn.innerHTML = 'Chi tiết <span class="material-symbols-outlined text-sm">arrow_forward</span>'
+        }
+      })
+    }
+
+    const ensureInlineAddButtons = () => {
+      cards.forEach((card) => {
+        if (card.querySelector('[data-add-to-cart], [data-buy-now]')) return
+        const actionRow = card.querySelector('.flex.items-center.justify-between.mt-auto')
+        if (!actionRow) return
+
+        const actionButtons = document.createElement('div')
+        actionButtons.className = 'inline-action-row'
+
+        const addBtn = document.createElement('button')
+        addBtn.type = 'button'
+        addBtn.className = 'inline-add-btn'
+        addBtn.setAttribute('data-add-to-cart', 'true')
+        addBtn.innerHTML = '<span class="material-symbols-outlined text-[16px]">add_shopping_cart</span>Thêm vào giỏ'
+
+        const buyNowBtn = document.createElement('button')
+        buyNowBtn.type = 'button'
+        buyNowBtn.className = 'inline-buy-btn'
+        buyNowBtn.setAttribute('data-add-to-cart', 'true')
+        buyNowBtn.setAttribute('data-buy-now', 'true')
+        buyNowBtn.innerHTML = 'Mua ngay'
+
+        actionButtons.appendChild(addBtn)
+        actionButtons.appendChild(buyNowBtn)
+        actionRow.insertAdjacentElement('afterend', actionButtons)
+      })
+    }
+
+    const normalizeText = (value) => (value || '')
+      .toLowerCase()
+      .normalize('NFD')
+      .replace(/[\u0300-\u036f]/g, '')
+      .replace(/\s+/g, ' ')
+      .trim()
+
+    const setActiveButton = (activeBtn) => {
+      buttons.forEach((btn) => {
+        const check = btn.querySelector('.filter-check')
+        if (btn === activeBtn) {
+          btn.classList.remove(...inactiveClasses)
+          btn.classList.add(...activeClasses)
+          if (check) check.classList.remove('hidden')
+        } else {
+          btn.classList.remove(...activeClasses)
+          btn.classList.add(...inactiveClasses)
+          if (check) check.classList.add('hidden')
+        }
+      })
+    }
+
+    const syncPetButtons = () => {
+      petButtons.forEach((btn) => {
+        const pet = btn.dataset.petFilter
+        btn.classList.toggle('is-active', activePets.has(pet))
+      })
+    }
+
+    const getCardPrice = (card) => {
+      const priceEl = card.querySelector('.text-xl.font-extrabold')
+      const raw = (priceEl?.textContent || '').replace(/[^\d]/g, '')
+      const parsed = Number.parseInt(raw, 10)
+      return Number.isFinite(parsed) ? parsed : 0
+    }
+
+    const sortProducts = () => {
+      if (!grid) return
+      const nextOrder = Array.from(cards)
+
+      if (activeSort === 'price') {
+        nextOrder.sort((a, b) => {
+          const delta = getCardPrice(a) - getCardPrice(b)
+          return isPriceAsc ? delta : -delta
+        })
+      } else if (activeSort === 'newest') {
+        nextOrder.sort((a, b) => (originalOrderIndex.get(b) ?? 0) - (originalOrderIndex.get(a) ?? 0))
+      } else {
+        nextOrder.sort((a, b) => defaultOrder.indexOf(a) - defaultOrder.indexOf(b))
+      }
+
+      nextOrder.forEach((card) => grid.appendChild(card))
+    }
+
+    const toggleEmptyState = (visibleCount) => {
+      if (!emptyState || !grid) return
+      if (visibleCount === 0) {
+        emptyState.classList.add('show')
+        grid.style.display = 'none'
+      } else {
+        emptyState.classList.remove('show')
+        grid.style.display = ''
+      }
+    }
+
+    const syncSearchClear = () => {
+      if (!clearSearchBtn) return
+      clearSearchBtn.classList.toggle('hidden', !searchTerm)
+    }
+
+    const applyFilters = () => {
+      sortProducts()
+      let visible = 0
+      cards.forEach((card) => {
+        const categoryMatch = activeCategory === 'all' || card.dataset.category === activeCategory
+        const petValues = (card.dataset.pet || 'dog').split(',').map((pet) => pet.trim())
+        const petMatch = petValues.some((pet) => activePets.has(pet))
+        const searchableText = normalizeText(card.textContent)
+        const searchMatch = !searchTerm || searchableText.includes(searchTerm)
+        const match = categoryMatch && petMatch && searchMatch
+        card.style.display = match ? '' : 'none'
+        if (match) visible += 1
+      })
+      syncSearchClear()
+      toggleEmptyState(visible)
+    }
+
+    buttons.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        activeCategory = btn.dataset.filter || 'all'
+        setActiveButton(btn)
+        applyFilters()
+      })
+    })
+
+    petButtons.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const pet = btn.dataset.petFilter
+        if (!pet) return
+
+        if (activePets.has(pet) && activePets.size > 1) {
+          activePets.delete(pet)
+        } else {
+          activePets.add(pet)
+        }
+
+        syncPetButtons()
+        applyFilters()
+      })
+    })
+
+    if (searchInput) {
+      searchInput.addEventListener('input', () => {
+        searchTerm = normalizeText(searchInput.value)
+        applyFilters()
+      })
+    }
+
+    if (searchForm) {
+      searchForm.addEventListener('submit', (event) => {
+        event.preventDefault()
+        if (searchInput) searchInput.focus()
+      })
+    }
+
+    if (clearSearchBtn) {
+      clearSearchBtn.addEventListener('click', () => {
+        if (searchInput) {
+          searchInput.value = ''
+          searchInput.focus()
+        }
+        searchTerm = ''
+        applyFilters()
+      })
+    }
+
+    sortChips.forEach((chip) => {
+      chip.addEventListener('click', () => {
+        const sortType = chip.dataset.sort
+        activeSort = sortType || 'popular'
+
+        if (sortType === 'price') {
+          if (chip.classList.contains('sort-chip-active')) {
+            isPriceAsc = !isPriceAsc
+          } else {
+            isPriceAsc = true
+          }
+        } else {
+          isPriceAsc = true
+        }
+
+        if (priceChip) {
+          priceChip.textContent = isPriceAsc ? 'Giá ↑' : 'Giá ↓'
+        }
+
+        sortChips.forEach((item) => item.classList.remove('sort-chip-active'))
+        chip.classList.add('sort-chip-active')
+        applyFilters()
+      })
+    })
+
+    localizeProductCards()
+    ensureInlineAddButtons()
+    syncPetButtons()
+    syncShopViewport()
+    initViewportAnimations()
+    window.addEventListener('resize', syncShopViewport)
+    window.addEventListener('orientationchange', syncShopViewport)
+    applyFilters()
+  })()
+</script>
+</body></html>
+
+
+
+
+
+
+
+
+
+
+

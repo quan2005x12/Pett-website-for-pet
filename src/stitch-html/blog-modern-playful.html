@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="vi"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>PETT Blog | Tạp chí thú cưng hiện đại</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Be+Vietnam+Pro:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-secondary-fixed-variant": "#8c1520",
+                    "on-tertiary-fixed": "#211b00",
+                    "on-primary-fixed-variant": "#005048",
+                    "on-background": "#1b1c15",
+                    "on-tertiary-fixed-variant": "#524600",
+                    "on-error": "#ffffff",
+                    "tertiary-fixed-dim": "#dec651",
+                    "on-surface": "#1b1c15",
+                    "on-primary-fixed": "#00201c",
+                    "secondary-fixed": "#ffdad8",
+                    "on-tertiary-container": "#443a00",
+                    "surface-container-highest": "#e4e3d7",
+                    "primary-fixed": "#71f8e4",
+                    "on-primary-container": "#00423b",
+                    "error-container": "#ffdad6",
+                    "surface-container-low": "#f5f4e8",
+                    "on-secondary-fixed": "#410006",
+                    "on-primary": "#ffffff",
+                    "on-surface-variant": "#3c4947",
+                    "primary-fixed-dim": "#4fdbc8",
+                    "on-secondary-container": "#6d0010",
+                    "tertiary-container": "#baa432",
+                    "primary-container": "#14b8a6",
+                    "secondary-container": "#ff6b6b",
+                    "surface-tint": "#006b5f",
+                    "secondary": "#ae2f34",
+                    "background": "#fbfaee",
+                    "primary": "#006b5f",
+                    "error": "#ba1a1a",
+                    "outline-variant": "#bbcac6",
+                    "surface-container-lowest": "#ffffff",
+                    "surface-container": "#efeee3",
+                    "on-secondary": "#ffffff",
+                    "surface-bright": "#fbfaee",
+                    "inverse-primary": "#4fdbc8",
+                    "inverse-on-surface": "#f2f1e5",
+                    "surface-variant": "#e4e3d7",
+                    "on-error-container": "#93000a",
+                    "tertiary": "#6d5e00",
+                    "surface-dim": "#dbdbcf",
+                    "outline": "#6c7a77",
+                    "on-tertiary": "#ffffff",
+                    "tertiary-fixed": "#fbe36a",
+                    "surface": "#fbfaee",
+                    "surface-container-high": "#e9e9dd",
+                    "inverse-surface": "#303129",
+                    "secondary-fixed-dim": "#ffb3b0"
+            },
+            "borderRadius": {
+                    "DEFAULT": "1rem",
+                    "lg": "2rem",
+                    "xl": "3rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Plus Jakarta Sans"],
+                    "body": ["Be Vietnam Pro"],
+                    "label": ["Plus Jakarta Sans"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+    @keyframes splitRevealFromLeft {
+      from {
+        opacity: 0;
+        transform: translate3d(-36px, 0, 0);
+      }
+      to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+      }
+    }
+    @keyframes splitRevealFromRight {
+      from {
+        opacity: 0;
+        transform: translate3d(36px, 0, 0);
+      }
+      to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+      }
+    }
+    .split-reveal-left {
+      opacity: 0;
+      transform: translate3d(-36px, 0, 0);
+    }
+    .split-reveal-left.is-visible {
+      animation: splitRevealFromLeft 680ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
+      animation-delay: var(--split-delay, 90ms);
+    }
+    .split-reveal-right {
+      opacity: 0;
+      transform: translate3d(36px, 0, 0);
+    }
+    .split-reveal-right.is-visible {
+      animation: splitRevealFromRight 680ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
+      animation-delay: var(--split-delay, 90ms);
+    }
+    @keyframes revealUpFromBottom {
+      from {
+        opacity: 0;
+        transform: translate3d(0, 32px, 0);
+      }
+      to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+      }
+    }
+    .reveal-up {
+      opacity: 0;
+      transform: translate3d(0, 32px, 0);
+    }
+    .reveal-up.is-visible {
+      animation: revealUpFromBottom 720ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
+      animation-delay: var(--delay, 0ms);
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .split-reveal-left,
+      .split-reveal-right,
+      .reveal-up {
+        animation: none !important;
+        opacity: 1 !important;
+        transform: none !important;
+      }
+    }
+    :root {
+      --blog-nav-height: 0px;
+    }
+    /* Fluid hero typography & spacing — scale smoothly with viewport */
+    .blog-hero-title {
+      font-size: clamp(2rem, 4.5vw + 0.5rem, 5rem);
+      line-height: 0.92;
+      letter-spacing: -0.04em;
+    }
+    .blog-hero-body {
+      font-size: clamp(0.95rem, 1.1vw + 0.4rem, 1.2rem);
+      line-height: 1.65;
+    }
+    .blog-hero-badge {
+      font-size: clamp(0.7rem, 0.8vw + 0.2rem, 0.875rem);
+    }
+    .blog-hero-shell-inner {
+      padding: clamp(1.25rem, 3vw, 3.5rem) clamp(1.25rem, 4vw, 3rem);
+    }
+    .blog-hero-gap {
+      gap: clamp(1.5rem, 3vw, 3rem);
+    }
+    .blog-hero-stat {
+      margin-top: clamp(1rem, 2vh, 2rem);
+    }
+    .blog-hero-cta {
+      margin-bottom: clamp(0.5rem, 1.5vh, 2rem);
+    }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-nav {
+            background: rgba(251, 250, 238, 0.7);
+            backdrop-filter: blur(24px);
+        }
+    .blog-main {
+      padding-top: var(--blog-nav-height);
+    }
+    .blog-hero {
+      height: calc(var(--pett-vh, 100vh) - var(--blog-nav-height));
+      max-height: calc(var(--pett-vh, 100vh) - var(--blog-nav-height));
+      display: flex;
+      align-items: center;
+      box-sizing: border-box;
+    }
+    @supports (height: 100dvh) {
+      .blog-hero {
+        height: calc(100dvh - var(--blog-nav-height));
+        max-height: calc(100dvh - var(--blog-nav-height));
+      }
+    }
+    .blog-tone-hero {
+      background:
+        radial-gradient(120% 90% at 82% 15%, rgba(79, 219, 200, 0.36) 0%, rgba(79, 219, 200, 0) 45%),
+        linear-gradient(120deg, #003c35 0%, #005f54 42%, #006b5f 75%, #0b7f72 100%);
+    }
+    .blog-hero-shell {
+      position: relative;
+      overflow: hidden;
+      border-radius: 2.4rem;
+      background: linear-gradient(140deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.03));
+      box-shadow:
+        inset 0 0 0 1px rgba(255, 255, 255, 0.18),
+        0 26px 54px rgba(0, 27, 24, 0.42);
+      flex: 1 1 0;
+      display: flex;
+      flex-direction: column;
+      min-height: 0;
+    }
+    .blog-hero-shell::before {
+      content: "";
+      position: absolute;
+      inset: -12% -25% -8% 42%;
+      background: repeating-radial-gradient(
+        circle at 6% 55%,
+        rgba(255, 255, 255, 0.26) 0 1.5px,
+        rgba(255, 255, 255, 0) 1.5px 30px
+      );
+      opacity: 0.26;
+      pointer-events: none;
+    }
+    .blog-hero-shell::after {
+      content: "";
+      position: absolute;
+      inset: auto -15% -55% 35%;
+      height: 65%;
+      border-radius: 50%;
+      background: radial-gradient(circle at 50% 20%, rgba(255, 255, 255, 0.38), rgba(255, 255, 255, 0));
+      pointer-events: none;
+    }
+    .pet-bag-stage {
+      position: relative;
+      border-radius: 1.8rem;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      background: linear-gradient(160deg, rgba(255, 255, 255, 0.26), rgba(255, 255, 255, 0.06));
+      backdrop-filter: blur(4px);
+      box-shadow: 0 22px 40px rgba(0, 24, 21, 0.34);
+    }
+    .pet-bag-image {
+      width: min(100%, 470px);
+      margin: 0 auto;
+      display: block;
+      filter: drop-shadow(0 28px 22px rgba(0, 0, 0, 0.32));
+    }
+    .hero-topic-strip {
+      border-top: 1px solid rgba(255, 255, 255, 0.2);
+      background: rgba(0, 40, 35, 0.42);
+      backdrop-filter: blur(9px);
+    }
+    .hero-topic-item {
+      color: rgba(240, 252, 250, 0.9);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      font-size: 0.875rem;
+      font-weight: 600;
+      letter-spacing: 0.01em;
+      white-space: nowrap;
+    }
+    @media (max-width: 1023px) {
+      .blog-hero-shell {
+        border-radius: 2rem;
+      }
+      .blog-hero-shell::before {
+        inset: 35% -30% -12% 30%;
+      }
+      .hero-topic-strip {
+        border-top: 0;
+        border-radius: 1rem;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+      }
+    }
+    .blog-tone-featured {
+      background-color: #efeee3;
+    }
+    .blog-tone-grid {
+      background-color: #e9e9dd;
+    }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopNavBar -->
+<header id="blog-top-nav" class="fixed top-0 w-full z-50 bg-surface/70 backdrop-blur-md shadow-sm">
+<nav class="flex justify-between items-center w-full px-6 py-4 max-w-7xl mx-auto">
+<a class="text-4xl font-black tracking-tighter text-primary font-headline uppercase" href="/" data-route="/">PETT</a>
+<div class="hidden md:flex items-center gap-2 font-label text-sm font-semibold tracking-tight">
+<a class="px-5 py-2 rounded-full text-on-surface hover:bg-surface-container-high hover:text-primary transition-all duration-200" href="/shop">Cửa hàng</a>
+<a class="px-5 py-2 rounded-full bg-primary text-white shadow-md shadow-primary/30 font-bold" href="/blog">Blog</a>
+<a class="px-5 py-2 rounded-full text-on-surface hover:bg-surface-container-high hover:text-primary transition-all duration-200" href="/goi-dinh-ky">Gói định kỳ</a>
+</div>
+<div class="flex items-center gap-4">
+<a href="/cart" data-route="/cart" class="p-2 text-on-surface-variant hover:bg-surface-container-high rounded-full transition-all active:scale-95 active:opacity-80 flex items-center justify-center"><span class="material-symbols-outlined">shopping_cart</span></a>
+<a href="/login" data-route="/login" class="p-2 text-on-surface-variant hover:bg-surface-container-high rounded-full transition-all active:scale-95 active:opacity-80 flex items-center justify-center"><span class="material-symbols-outlined">person</span></a>
+</div>
+</nav>
+</header>
+<main class="blog-main overflow-x-hidden">
+<!-- Hero Section -->
+<section class="blog-hero blog-tone-hero relative w-full px-4 sm:px-6 md:px-8 py-6 md:py-10">
+<div class="max-w-7xl mx-auto">
+<div class="blog-hero-shell blog-hero-shell-inner">
+<div class="grid grid-cols-1 lg:grid-cols-12 blog-hero-gap items-center w-full relative z-10">
+<div class="lg:col-span-7 split-reveal-left" style="--split-delay: 80ms;">
+<span class="blog-hero-badge inline-flex items-center gap-2 bg-white/18 text-teal-50 px-4 py-1 rounded-full font-bold tracking-wide mb-4 font-headline uppercase border border-white/30">100% Cân bằng dinh dưỡng</span>
+<h1 class="blog-hero-title font-extrabold font-headline text-white mb-4">
+            Bữa ăn chuẩn <span class="text-primary-fixed italic">PETT</span>, năng lượng trọn ngày cho boss.
+          </h1>
+<p class="blog-hero-body text-teal-50/90 max-w-xl mb-5 blog-hero-cta">
+            Khám phá mẹo dinh dưỡng, lịch ăn và bí quyết chọn bánh thưởng đúng vị cho chó mèo ở mọi giai đoạn phát triển.
+          </p>
+<div class="flex flex-wrap gap-4">
+<a class="inline-flex items-center justify-center bg-white text-primary px-8 py-4 rounded-full font-bold transition-all hover:scale-105 shadow-lg shadow-black/20" href="/blog/huong-dan-toan-dien-cham-soc-thu-cung" data-route="/blog/huong-dan-toan-dien-cham-soc-thu-cung">Đọc bài nổi bật</a>
+<a class="inline-flex items-center justify-center bg-primary-fixed/20 text-white border border-white/30 px-8 py-4 rounded-full font-bold transition-all hover:bg-primary-fixed/30" href="/shop" data-route="/shop">Vào cửa hàng</a>
+</div>
+<div class="blog-hero-stat flex flex-wrap items-center gap-3 text-sm text-teal-50/95">
+<span class="inline-flex items-center gap-1 rounded-full bg-white/16 px-4 py-2 border border-white/20">
+<span class="text-tertiary-fixed">★★★★★</span>
+<span class="font-semibold">4.9/5</span>
+</span>
+<span class="font-medium">Được hơn 1.200 chủ nuôi tin chọn</span>
+</div>
+</div>
+<div class="lg:col-span-5 relative split-reveal-right" style="--split-delay: 140ms;">
+<div class="absolute -top-10 right-8 w-56 h-56 bg-primary-fixed/30 rounded-full blur-3xl"></div>
+<div class="pet-bag-stage p-4 sm:p-6 lg:p-7">
+<img alt="Túi đồ ăn PETT cao cấp" class="pet-bag-image aspect-4/5 object-contain" data-alt="PETT premium pet food bag hero visual" src="/images/products/cat-litter-2.webp"/>
+</div>
+<div class="absolute -bottom-6 left-0 sm:-left-6 bg-secondary-container text-white px-5 py-4 rounded-2xl shadow-xl -rotate-6">
+<span class="block text-2xl font-black font-headline leading-none">1200+</span>
+<span class="text-sm font-medium">Boss ăn ngon mỗi ngày</span>
+</div>
+<div class="absolute top-5 right-0 bg-white/90 text-primary px-4 py-2 rounded-full text-sm font-bold shadow-lg hidden sm:inline-flex items-center gap-2">
+<span class="material-symbols-outlined text-base">workspace_premium</span>
+              Tư vấn bởi chuyên gia PETT
+</div>
+</div>
+</div>
+
+</div>
+</div>
+</section>
+<!-- Nổi bật Article -->
+<section class="blog-tone-featured w-full px-6 md:px-8 py-14">
+<div class="max-w-7xl mx-auto">
+<div class="bg-surface-container-low rounded-xl p-8 md:p-12 relative overflow-hidden flex flex-col md:flex-row gap-12 items-stretch">
+<div class="w-full md:w-2/5 relative z-10 self-center split-reveal-left" style="--split-delay: 110ms;">
+<img alt="Sản phẩm chăm sóc thú cưng nổi bật" class="rounded-xl w-full max-h-72 object-cover shadow-2xl" data-alt="Featured pet care product visual for article highlight" src="/images/products/chicken-meal-2.webp"/>
+
+</div>
+<div class="w-full md:w-3/5 space-y-6 self-center split-reveal-right" style="--split-delay: 170ms;">
+<div class="flex items-center gap-4 text-sm text-on-surface-variant font-medium">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm">schedule</span> 8 phút đọc</span>
+<span>•</span>
+<span>Dinh dưỡng</span>
+</div>
+<h2 class="text-4xl font-extrabold font-headline leading-tight text-on-surface">Hướng dẫn toàn diện chăm sóc thú cưng khỏe mạnh năm 2024</h2>
+<p class="text-lg text-on-surface-variant leading-relaxed">
+            Khám phá cách cân bằng dinh dưỡng, vận động và chăm sóc tinh thần để thú cưng luôn khỏe mạnh, vui vẻ.
+          </p>
+<a class="inline-flex items-center gap-2 text-primary font-bold hover:gap-4 transition-all" href="/blog/huong-dan-toan-dien-cham-soc-thu-cung" data-route="/blog/huong-dan-toan-dien-cham-soc-thu-cung">
+                        Đọc tiếp <span class="material-symbols-outlined">arrow_forward</span>
+</a>
+</div>
+</div>
+</div>
+</section>
+<!-- Article Grid -->
+<section class="blog-tone-grid w-full px-6 md:px-8 py-14">
+<div class="max-w-7xl mx-auto">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+<!-- Card 1 -->
+<div class="group cursor-pointer bg-surface-container-lowest rounded-xl p-5 shadow-sm border border-outline-variant/30 reveal-up" style="--delay: 40ms;" data-route="/blog/giai-ma-ngon-ngu-co-the-cua-meo">
+<div class="relative mb-6 rounded-lg overflow-hidden h-72">
+<img alt="Bánh thưởng hỗ trợ huấn luyện mèo" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="Salmon treat product image for cat training topic" src="/images/products/salmon-bites-1.webp"/>
+
+</div>
+<div class="space-y-3">
+<div class="text-primary font-bold text-sm font-headline tracking-wide uppercase">Huấn luyện</div>
+<h3 class="text-2xl font-bold font-headline leading-snug group-hover:text-primary transition-colors">Giải mã ngôn ngữ cơ thể ẩn của mèo</h3>
+<p class="text-on-surface-variant line-clamp-2">Tìm hiểu các tín hiệu tinh tế mèo dùng để thể hiện cảm xúc và nhu cầu.</p>
+<div class="text-xs font-medium text-slate-400 uppercase tracking-widest pt-2">12 Tháng 5, 2024 • 5 phút</div>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="group cursor-pointer bg-surface-container-lowest rounded-xl p-5 shadow-sm border border-outline-variant/30 reveal-up" style="--delay: 120ms;" data-route="/blog/sieu-thuc-pham-cho-cho">
+<div class="relative mb-6 rounded-lg overflow-hidden h-72">
+<img alt="Bữa ăn dinh dưỡng cho chó" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="Chicken meal product image for dog nutrition article" src="/images/products/chicken-meal-1.webp"/>
+
+</div>
+<div class="space-y-3">
+<div class="text-primary font-bold text-sm font-headline tracking-wide uppercase">Dinh dưỡng</div>
+<h3 class="text-2xl font-bold font-headline leading-snug group-hover:text-primary transition-colors">Siêu thực phẩm mọi chú chó nên có trong bữa ăn</h3>
+<p class="text-on-surface-variant line-clamp-2">Từ việt quất đến cải xoăn, khám phá thực phẩm giúp tăng miễn dịch cho chó.</p>
+<div class="text-xs font-medium text-slate-400 uppercase tracking-widest pt-2">10 Tháng 5, 2024 • 4 phút</div>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="group cursor-pointer bg-surface-container-lowest rounded-xl p-5 shadow-sm border border-outline-variant/30 reveal-up" style="--delay: 200ms;" data-route="/blog/5-tro-choi-tuong-tac-cho-thu-cung">
+<div class="relative mb-6 rounded-lg overflow-hidden h-72">
+<img alt="Đồ chơi tương tác cho thú cưng" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="Interactive pet toy image for playtime article" src="/images/products/feather-wand-1.webp"/>
+</div>
+<div class="space-y-3">
+<div class="text-primary font-bold text-sm font-headline tracking-wide uppercase">Vui chơi</div>
+<h3 class="text-2xl font-bold font-headline leading-snug group-hover:text-primary transition-colors">5 trò chơi tương tác giúp thú cưng bớt nhàm chán</h3>
+<p class="text-on-surface-variant line-clamp-2">Giữ thú cưng luôn nhanh nhạy với các hoạt động trong nhà đơn giản và thú vị.</p>
+<div class="text-xs font-medium text-slate-400 uppercase tracking-widest pt-2">08 Tháng 5, 2024 • 6 phút</div>
+</div>
+</div>
+<!-- Card 4 -->
+<div class="group cursor-pointer bg-surface-container-lowest rounded-xl p-5 shadow-sm border border-outline-variant/30 reveal-up" style="--delay: 80ms;" data-route="/blog/cham-soc-long-tai-nha-khong-cang-thang">
+<div class="relative mb-6 rounded-lg overflow-hidden h-72">
+<img alt="Phụ kiện chăm sóc thú cưng" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="Pet accessory visual for grooming and care article" src="/images/products/bow-collar-2.webp"/>
+</div>
+<div class="space-y-3">
+<div class="text-primary font-bold text-sm font-headline tracking-wide uppercase">Sức khỏe</div>
+<h3 class="text-2xl font-bold font-headline leading-snug group-hover:text-primary transition-colors">Hướng dẫn chăm sóc lông tại nhà không căng thẳng</h3>
+<p class="text-on-surface-variant line-clamp-2">Biến giờ tắm thành thời gian gắn kết với các kỹ thuật được chuyên gia khuyên dùng.</p>
+<div class="text-xs font-medium text-slate-400 uppercase tracking-widest pt-2">05 Tháng 5, 2024 • 10 phút</div>
+</div>
+</div>
+<!-- Card 5 -->
+<div class="group cursor-pointer bg-surface-container-lowest rounded-xl p-5 shadow-sm border border-outline-variant/30 reveal-up" style="--delay: 160ms;" data-route="/blog/thiet-lap-khong-gian-cho-meo-con">
+<div class="relative mb-6 rounded-lg overflow-hidden h-72">
+<img alt="Mèo con thư giãn" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="Calm pet portrait for kitten lifestyle article" src="/images/shutterstock/testimonial-luna.webp"/>
+
+</div>
+<div class="space-y-3">
+<div class="text-primary font-bold text-sm font-headline tracking-wide uppercase">Phong cách sống</div>
+<h3 class="text-2xl font-bold font-headline leading-snug group-hover:text-primary transition-colors">Thiết lập không gian hoàn hảo cho mèo con</h3>
+<p class="text-on-surface-variant line-clamp-2">Mọi điều bạn cần để chào đón mèo con về ngôi nhà mới.</p>
+<div class="text-xs font-medium text-slate-400 uppercase tracking-widest pt-2">01 Tháng 5, 2024 • 7 phút</div>
+</div>
+</div>
+<!-- Card 6 -->
+<div class="group cursor-pointer bg-surface-container-lowest rounded-xl p-5 shadow-sm border border-outline-variant/30 reveal-up" style="--delay: 240ms;" data-route="/blog/huan-luyen-tich-cuc-vi-sao-hieu-qua">
+<div class="relative mb-6 rounded-lg overflow-hidden h-72">
+<img alt="Dây chơi hỗ trợ huấn luyện tích cực" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="Tug rope visual for positive dog training article" src="/images/products/tug-rope-2.webp"/>
+</div>
+<div class="space-y-3">
+<div class="text-primary font-bold text-sm font-headline tracking-wide uppercase">Huấn luyện</div>
+<h3 class="text-2xl font-bold font-headline leading-snug group-hover:text-primary transition-colors">Huấn luyện tích cực: Vì sao hiệu quả</h3>
+<p class="text-on-surface-variant line-clamp-2">Khoa học đằng sau việc khen thưởng luôn hiệu quả hơn trừng phạt.</p>
+<div class="text-xs font-medium text-slate-400 uppercase tracking-widest pt-2">28 Tháng 4, 2024 • 9 phút</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+</main>
+<!-- Footer -->
+<footer class="w-full rounded-t-[3rem] bg-slate-50 dark:bg-slate-950 border-t border-slate-100 dark:border-slate-800">
+<div class="flex flex-col md:flex-row justify-between items-center px-12 py-16 gap-8 max-w-7xl mx-auto">
+<div class="flex flex-col items-center md:items-start">
+<p class="text-sm font-light leading-relaxed text-slate-500 dark:text-slate-400 text-center md:text-left">© 2024 PETT.</p>
+</div>
+<div class="flex flex-wrap justify-center gap-8 text-sm font-light leading-relaxed">
+<a class="text-slate-500 dark:text-slate-400 hover:text-coral-500 transition-colors opacity-80 hover:opacity-100" href="#">Chính sách bảo mật</a>
+<a class="text-slate-500 dark:text-slate-400 hover:text-coral-500 transition-colors opacity-80 hover:opacity-100" href="#">Điều khoản dịch vụ</a>
+</div>
+<div class="flex gap-4">
+<div class="w-10 h-10 rounded-full bg-slate-200 dark:bg-slate-800 flex items-center justify-center cursor-pointer hover:bg-teal-500 hover:text-white transition-all">
+<span class="material-symbols-outlined text-xl" data-icon="mail">mail</span>
+</div>
+</div>
+</div>
+</footer>
+<script>
+  ;(() => {
+    const syncHeroHeight = () => {
+      const nav = document.getElementById('blog-top-nav')
+      if (!nav) return
+      const height = Math.ceil(nav.getBoundingClientRect().height)
+      document.documentElement.style.setProperty('--blog-nav-height', `${height}px`)
+    }
+
+    const syncViewportHeight = () => {
+      document.documentElement.style.setProperty('--pett-vh', `${window.innerHeight}px`)
+    }
+
+    const initViewportAnimations = () => {
+      const animatedElements = document.querySelectorAll('.split-reveal-left, .split-reveal-right, .reveal-up')
+      if (!animatedElements.length) return
+
+      const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+      if (prefersReducedMotion || !('IntersectionObserver' in window)) {
+        animatedElements.forEach((element) => element.classList.add('is-visible'))
+        return
+      }
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return
+          entry.target.classList.add('is-visible')
+          observer.unobserve(entry.target)
+        })
+      }, {
+        threshold: 0.18,
+        rootMargin: '0px 0px -8% 0px',
+      })
+
+      animatedElements.forEach((element) => observer.observe(element))
+    }
+
+    syncHeroHeight()
+    syncViewportHeight()
+    initViewportAnimations()
+    window.addEventListener('resize', () => { syncHeroHeight(); syncViewportHeight() })
+    window.addEventListener('orientationchange', () => { syncHeroHeight(); syncViewportHeight() })
+  })()
+</script>
+</body></html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

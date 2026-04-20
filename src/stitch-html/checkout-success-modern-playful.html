@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Thanh toán thành công - PETT</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Be+Vietnam+Pro:wght@400;500;600&amp;display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#006b5f",
+                        "primary-container": "#14b8a6",
+                        "on-primary": "#ffffff",
+                        "on-primary-container": "#00423b",
+                        background: "#fbfaee",
+                        surface: "#fbfaee",
+                        "on-surface": "#1b1c15",
+                        "on-surface-variant": "#3c4947",
+                        "surface-container-low": "#f5f4e8",
+                        "surface-container": "#efeee3",
+                        "surface-container-high": "#e9e9dd",
+                        "surface-container-highest": "#e4e3d7",
+                        "surface-container-lowest": "#ffffff",
+                    },
+                    borderRadius: {
+                        DEFAULT: "1rem",
+                        lg: "2rem",
+                        xl: "3rem",
+                        full: "9999px",
+                    },
+                    fontFamily: {
+                        headline: ["Plus Jakarta Sans"],
+                        body: ["Be Vietnam Pro"],
+                        label: ["Plus Jakarta Sans"],
+                    },
+                },
+            },
+        };
+    </script>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Be Vietnam Pro', sans-serif; }
+        h1, h2, h3, .font-headline { font-family: 'Plus Jakarta Sans', sans-serif; }
+        .glass-nav {
+            background: rgba(251, 250, 238, 0.7);
+            backdrop-filter: blur(24px);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface antialiased min-h-screen flex flex-col pt-24 pb-12">
+    <!-- Top Nav -->
+    <nav class="fixed top-0 w-full z-50 glass-nav shadow-sm shadow-stone-200/20">
+        <div class="flex justify-between items-center px-6 py-4 max-w-7xl mx-auto">
+            <a class="text-2xl font-bold tracking-tighter text-teal-700 font-headline" href="/" data-route="/">PETT</a>
+            <div class="flex items-center gap-4">
+                <a href="/login" data-route="/login" class="p-2 hover:bg-stone-100/50 rounded-full transition-all active:scale-90 text-stone-600 flex items-center justify-center"><span class="material-symbols-outlined">person</span></a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="grow max-w-5xl mx-auto w-full px-6 flex flex-col gap-10">
+        <!-- Hero Section -->
+        <section class="text-center py-8">
+            <div class="w-20 h-20 bg-primary rounded-full flex items-center justify-center mx-auto mb-6 text-white shadow-xl shadow-teal-700/20">
+                <span class="material-symbols-outlined text-4xl" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+            </div>
+            <h1 class="text-4xl md:text-5xl font-headline font-black tracking-tight mb-4 text-on-surface">Đặt hàng thành công!</h1>
+            <p class="text-on-surface-variant text-lg max-w-xl mx-auto mb-6">Cảm ơn bạn đã mua sắm tại PETT. Đơn hàng của bạn đang được xử lý và sẽ sớm được giao tới.</p>
+            <div class="inline-flex items-center gap-2 bg-surface-container-high px-5 py-2 rounded-full text-sm font-bold text-on-surface">
+                <span class="material-symbols-outlined text-base">receipt_long</span>
+                Mã đơn hàng: <span class="font-bold text-primary">PETT-LOADING...</span>
+            </div>
+        </section>
+
+        <!-- Order Info Bento -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+            <!-- Left Column -->
+            <div class="lg:col-span-8 flex flex-col gap-8">
+                <!-- Status -->
+                <div class="bg-surface-container-lowest rounded-xl p-8 shadow-sm">
+                    <h2 class="text-xl font-headline font-bold mb-8">Trạng thái đơn hàng</h2>
+                    <div class="relative px-2">
+                        <div class="absolute left-0 right-0 top-4 h-1 bg-surface-container-high rounded-full"></div>
+                        <div class="absolute left-0 top-4 h-1 w-1/4 bg-primary rounded-full"></div>
+                        <div class="relative z-10 grid grid-cols-4 gap-2">
+                            <div class="flex flex-col items-center gap-2 text-center text-primary">
+                                <div class="w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center text-sm font-bold shadow-lg shadow-teal-700/20">
+                                    <span class="material-symbols-outlined text-base">check</span>
+                                </div>
+                                <span class="text-[10px] font-bold uppercase tracking-wider">Đã xác nhận</span>
+                            </div>
+                            <div class="flex flex-col items-center gap-2 text-center text-on-surface-variant opacity-40">
+                                <div class="w-8 h-8 rounded-full bg-surface-container-highest flex items-center justify-center text-sm font-bold">
+                                    <span class="material-symbols-outlined text-base">package_2</span>
+                                </div>
+                                <span class="text-[10px] font-bold uppercase tracking-wider">Chuẩn bị</span>
+                            </div>
+                            <div class="flex flex-col items-center gap-2 text-center text-on-surface-variant opacity-40">
+                                <div class="w-8 h-8 rounded-full bg-surface-container-highest flex items-center justify-center text-sm font-bold">
+                                    <span class="material-symbols-outlined text-base">local_shipping</span>
+                                </div>
+                                <span class="text-[10px] font-bold uppercase tracking-wider">Đang giao</span>
+                            </div>
+                            <div class="flex flex-col items-center gap-2 text-center text-on-surface-variant opacity-40">
+                                <div class="w-8 h-8 rounded-full bg-surface-container-highest flex items-center justify-center text-sm font-bold">
+                                    <span class="material-symbols-outlined text-base">home</span>
+                                </div>
+                                <span class="text-[10px] font-bold uppercase tracking-wider">Hoàn tất</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product List -->
+                <div class="bg-surface-container-lowest rounded-xl p-8 shadow-sm">
+                    <h2 class="text-xl font-headline font-bold mb-6">Sản phẩm</h2>
+                    <div class="flex flex-col gap-4">
+                        <!-- Items will be injected by StitchScreenFrame -->
+                        <div class="text-center py-10 opacity-30 italic">Đang tải danh sách sản phẩm...</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Column -->
+            <div class="lg:col-span-4 flex flex-col gap-8">
+                <!-- Payment Summary -->
+                <div class="bg-primary text-white rounded-xl p-8 shadow-xl shadow-teal-800/20">
+                    <h2 class="text-xl font-headline font-bold mb-6">Chi tiết thanh toán</h2>
+                    <div class="space-y-4 mb-6 text-sm text-white/80">
+                        <div class="flex justify-between">
+                            <span>Tạm tính</span>
+                            <span class="font-bold text-white">0₫</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span>Phí giao hàng</span>
+                            <span class="font-bold text-white">Miễn phí</span>
+                        </div>
+                        <div class="flex justify-between text-white/90">
+                            <span>Giảm giá</span>
+                            <span class="font-bold">-0₫</span>
+                        </div>
+                    </div>
+                    <div class="pt-6 border-t border-white/20">
+                        <div class="flex justify-between items-end mb-6">
+                            <span class="text-sm font-bold uppercase tracking-widest text-white/60">Tổng cộng</span>
+                            <span class="text-3xl font-headline font-black">0₫</span>
+                        </div>
+                        <div class="bg-white/10 p-3 rounded-lg flex items-center gap-2 text-xs font-medium border border-white/10">
+                            <span class="material-symbols-outlined text-sm">credit_card</span>
+                            Thanh toán khi nhận hàng (COD)
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Info Cards -->
+                <div class="bg-surface-container-lowest rounded-xl p-6 shadow-sm space-y-6">
+                    <div>
+                        <h3 class="text-xs font-bold uppercase tracking-widest text-on-surface-variant/40 mb-3">Giao hàng đến</h3>
+                        <p id="success-delivery-name" class="text-sm font-bold text-on-surface">Nguyễn Văn A</p>
+                        <p id="success-delivery-phone" class="text-sm text-on-surface-variant">0912 345 678</p>
+                        <p id="success-delivery-address" class="text-sm text-on-surface-variant mt-2">123 Đường Số 1, Phường An Phú, Thủ Đức, TP. Hồ Chí Minh</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Actions removed as per user request -->
+    </main>
+
+    <footer class="mt-auto py-10 px-6 border-t border-surface-container opacity-50">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="text-xl font-bold font-headline text-teal-700">PETT</div>
+            <div class="text-xs font-medium">© 2024 PETT Pet Boutique. All rights reserved.</div>
+            <div class="flex gap-6 text-xs font-bold">
+                <a class="hover:text-primary" href="#">Chính sách bảo mật</a>
+                <a class="hover:text-primary" href="#">Điều khoản dịch vụ</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
+
+
+

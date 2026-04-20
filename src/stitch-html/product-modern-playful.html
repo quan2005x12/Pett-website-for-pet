@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+
+<html class="light" lang="vi"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>PETT | Cham sóc thú cung</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2₫family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Be+Vietnam+Pro:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2₫family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2₫family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-tertiary-container": "#443a00",
+                      "surface-container-lowest": "#ffffff",
+                      "surface": "#fbfaee",
+                      "on-tertiary": "#ffffff",
+                      "surface-container-highest": "#e4e3d7",
+                      "background": "#fbfaee",
+                      "outline": "#6c7a77",
+                      "on-secondary-container": "#6d0010",
+                      "secondary": "#ae2f34",
+                      "on-primary-fixed": "#00201c",
+                      "surface-container-low": "#f5f4e8",
+                      "secondary-fixed-dim": "#ffb3b0",
+                      "surface-container-high": "#e9e9dd",
+                      "tertiary-fixed-dim": "#dec651",
+                      "on-secondary-fixed": "#410006",
+                      "on-primary-fixed-variant": "#005048",
+                      "on-error-container": "#93000a",
+                      "on-error": "#ffffff",
+                      "tertiary-fixed": "#fbe36a",
+                      "primary-fixed": "#71f8e4",
+                      "inverse-primary": "#4fdbc8",
+                      "primary-container": "#14b8a6",
+                      "tertiary": "#6d5e00",
+                      "secondary-fixed": "#ffdad8",
+                      "on-primary": "#ffffff",
+                      "on-secondary": "#ffffff",
+                      "on-primary-container": "#00423b",
+                      "surface-tint": "#006b5f",
+                      "tertiary-container": "#baa432",
+                      "secondary-container": "#ff6b6b",
+                      "inverse-on-surface": "#f2f1e5",
+                      "error": "#ba1a1a",
+                      "error-container": "#ffdad6",
+                      "surface-dim": "#dbdbcf",
+                      "surface-container": "#efeee3",
+                      "primary-fixed-dim": "#4fdbc8",
+                      "on-tertiary-fixed-variant": "#524600",
+                      "inverse-surface": "#303129",
+                      "surface-bright": "#fbfaee",
+                      "on-surface": "#1b1c15",
+                      "on-tertiary-fixed": "#211b00",
+                      "on-background": "#1b1c15",
+                      "surface-variant": "#e4e3d7",
+                      "on-secondary-fixed-variant": "#8c1520",
+                      "primary": "#006b5f",
+                      "on-surface-variant": "#3c4947",
+                      "outline-variant": "#bbcac6"
+              },
+              "borderRadius": {
+                      "DEFAULT": "1rem",
+                      "lg": "2rem",
+                      "xl": "3rem",
+                      "full": "9999px"
+              },
+              "fontFamily": {
+                      "headline": ["Plus Jakarta Sans"],
+                      "body": ["Be Vietnam Pro"],
+                      "label": ["Plus Jakarta Sans"]
+              }
+            },
+          },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .fill-icon {
+            font-variation-settings: 'FILL' 1;
+        }
+        .glass-header {
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+        }
+        .tonal-transition {
+            transition: background-color 0.3s ease;
+        }
+        body {
+            font-family: 'Be Vietnam Pro', sans-serif;
+            background-color: #fbfaee;
+            color: #1b1c15;
+        }
+        h1, h2, h3, .font-headline {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background antialiased">
+<!-- Top Navigation Bar -->
+<header class="fixed top-0 w-full z-50 bg-surface/70 glass-header shadow-sm">
+<div class="flex justify-between items-center w-full px-6 py-4 max-w-7xl mx-auto">
+<a class="text-2xl font-bold tracking-tighter text-teal-600" href="/" data-route="/">PETT</a>
+<nav class="hidden md:flex items-center gap-8 font-plus-jakarta text-sm font-medium tracking-tight">
+<a class="text-teal-600 font-semibold border-b-2 border-teal-600 pb-1" href="/shop">Cửa hàng</a>
+<a class="text-slate-600 hover:text-teal-500 transition-colors" href="/blog">Blog</a>
+<a class="text-slate-600 hover:text-teal-500 transition-colors" href="/goi-dinh-ky">Gói đểnh k?</a>
+</nav>
+<div class="flex items-center gap-4">
+<a href="/cart" data-route="/cart" class="p-2 text-slate-600 hover:bg-slate-100/50 rounded-full transition-all active:scale-95 active:opacity-80 flex items-center justify-center"><span class="material-symbols-outlined">shopping_cart</span></a>
+<a href="/login" data-route="/login" class="p-2 text-slate-600 hover:bg-slate-100/50 rounded-full transition-all active:scale-95 active:opacity-80 flex items-center justify-center"><span class="material-symbols-outlined">person</span></a>
+</div>
+</div>
+</header>
+<main class="pt-28 pb-32 max-w-7xl mx-auto px-6">
+<!-- Breadcrumbs -->
+<nav class="flex items-center gap-2 mb-8 text-sm font-medium text-on-surface-variant">
+<a class="hover:text-primary" href="/shop">Cửa hàng</a>
+<span class="material-symbols-outlined text-xs">chevron_right</span>
+<a class="hover:text-primary" href="#">Dinh du?ng</a>
+<span class="material-symbols-outlined text-xs">chevron_right</span>
+<span class="text-on-surface">B?a ti?c cá h?i không ngu c?c</span>
+</nav>
+<!-- Product Hero Section -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 mb-20">
+<!-- Media Gallery -->
+<div class="lg:col-span-7 flex flex-col md:flex-row-reverse gap-4">
+<div class="flex-1 aspect-square rounded-xl overflow-hidden bg-surface-container-low relative">
+<img alt="Thức ăn cá h?i cao c?p cho chó" class="w-full h-full object-cover" data-alt="Premium salmon meal product visual" src="/images/products/salmon-bites-2.webp"/>
+<div class="absolute top-4 left-4 bg-tertiary-container text-on-tertiary-container px-3 py-1 rounded-sm text-xs font-bold tracking-wider uppercase">H?u co</div>
+</div>
+<div class="flex md:flex-col gap-4 overflow-x-auto md:overflow-visible pb-2 md:pb-0">
+<div class="w-20 h-20 flex-shrink-0 rounded-lg overflow-hidden border-2 border-primary cursor-pointer ring-offset-2 ring-2 ring-primary/20">
+<img alt="Thumbnail s?n ph?m cá h?i 1" class="w-full h-full object-cover" data-alt="Salmon product close-up variation 1" src="/images/products/salmon-bites-1.webp"/>
+</div>
+<div class="w-20 h-20 flex-shrink-0 rounded-lg overflow-hidden opacity-60 hover:opacity-100 transition-opacity cursor-pointer">
+<img alt="Thumbnail s?n ph?m cá h?i 2" class="w-full h-full object-cover" data-alt="Salmon product close-up variation 2" src="/images/products/salmon-bites-3.webp"/>
+</div>
+<div class="w-20 h-20 flex-shrink-0 rounded-lg overflow-hidden opacity-60 hover:opacity-100 transition-opacity cursor-pointer">
+<img alt="Thumbnail thành ph?n dinh du?ng" class="w-full h-full object-cover" data-alt="Supporting ingredients visual for salmon formula" src="/images/products/chicken-meal-2.webp"/>
+</div>
+</div>
+</div>
+<!-- Product Info -->
+<div class="lg:col-span-5 flex flex-col justify-start">
+<div class="flex items-center gap-1 mb-2">
+<div class="flex text-tertiary">
+<span class="material-symbols-outlined fill-icon text-sm">star</span>
+<span class="material-symbols-outlined fill-icon text-sm">star</span>
+<span class="material-symbols-outlined fill-icon text-sm">star</span>
+<span class="material-symbols-outlined fill-icon text-sm">star</span>
+<span class="material-symbols-outlined fill-icon text-sm">star_half</span>
+</div>
+<span class="text-xs font-medium text-on-surface-variant">(124 dánh giá)</span>
+</div>
+<h1 class="text-4xl md:text-5xl font-extrabold tracking-tight mb-4 text-on-surface">B?a ti?c cá h?i không ngu c?c</h1>
+<p class="text-body-lg text-on-surface-variant mb-6 leading-relaxed">Công thẻc giàu du?ng ch?t cho thú cung nang đểng. Cá h?i tuoi k?t h?p rau hữu cơ giúp b? lông bóng kh?e.</p>
+<div class="flex items-center gap-4 mb-8">
+<span class="text-3xl font-bold text-secondary-container">$48.00</span>
+<span class="text-lg line-through text-outline-variant">$59.00</span>
+</div>
+<!-- Key Benefits -->
+<div class="space-y-4 mb-10">
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary-container">check_circle</span>
+<div>
+<p class="font-bold text-on-surface leading-tight">100% cá h?i dánh b?t t? nhiên</p>
+<p class="text-sm text-on-surface-variant">Giàu omega-3 cho da kh?e và lông bóng.</p>
+</div>
+</div>
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary-container">check_circle</span>
+<div>
+<p class="font-bold text-on-surface leading-tight">Công thẻc không ngu c?c</p>
+<p class="text-sm text-on-surface-variant">Phù h?p thú cung có h? tiêu hóa nh?y c?m ho?c để ?ng.</p>
+</div>
+</div>
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary-container">check_circle</span>
+<div>
+<p class="font-bold text-on-surface leading-tight">Ngu?n nguyên li?u b?n v?ng</p>
+<p class="text-sm text-on-surface-variant">Nguyên li?u thu ho?ch có trách nhi?m, dáng tin c?y.</p>
+</div>
+</div>
+</div>
+<!-- Subscription Upsell -->
+<div class="bg-surface-container-high rounded-lg p-6 mb-8 relative overflow-hidden group">
+<div class="absolute top-0 right-0 p-4 opacity-10 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-7xl">calendar_month</span>
+</div>
+<div class="flex justify-between items-start mb-4">
+<div>
+<h3 class="font-headline font-extrabold text-xl mb-1">Gói đểnh k?</h3>
+<p class="text-sm text-on-surface-variant">Đang kư đểnh k? để ti?t ki?m hon m?i tháng.</p>
+</div>
+<div class="bg-primary text-on-primary px-3 py-1 rounded-full text-xs font-bold uppercase tracking-widest">Ti?t ki?m 15%</div>
+</div>
+<p class="text-sm text-on-surface mb-6">Giao t?n nhà m?i tháng, không lo thú cung h?t món an yêu thích.</p>
+<button class="w-full bg-surface-container-lowest border border-primary text-primary font-bold py-3 rounded-full hover:bg-primary hover:text-on-primary transition-all" data-route="/goi-dinh-ky">Ch?n gói đểnh k?</button>
+</div>
+</div>
+</div>
+<!-- Related Products (Bento Style) -->
+<section class="mt-24">
+<div class="flex justify-between items-end mb-10">
+<div>
+<h2 class="text-3xl font-extrabold tracking-tight">Có thẻ b?n cung thích</h2>
+<p class="text-on-surface-variant">G?i ư phù h?p cho thú cung c?a b?n</p>
+</div>
+<button class="text-primary font-bold flex items-center gap-1 hover:underline" data-route="/shop">
+                    Xem t?t c? <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- Card 1 -->
+<div class="bg-surface-container-low rounded-xl p-4 group cursor-pointer" data-route="/shop">
+<div class="aspect-square rounded-lg overflow-hidden mb-4 relative bg-surface-container-lowest">
+<img alt="Snack v?t s?y" class="w-full h-full object-cover group-hover:scale-105 transition-transform" data-alt="Pet treat product image" src="/images/products/salmon-bites-1.webp"/>
+<div class="absolute bottom-3 left-3 flex gap-2">
+<span class="bg-surface-container-lowest text-on-surface text-[10px] font-bold px-2 py-1 rounded-sm uppercase tracking-tighter">M?i</span>
+</div>
+</div>
+<div class="flex justify-between items-start">
+<div>
+<h4 class="font-bold text-on-surface">Viên v?t s?y gịn</h4>
+<p class="text-xs text-on-surface-variant">Snack hu?n luy?n</p>
+</div>
+<span class="font-bold text-secondary-container">$12.00</span>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="bg-surface-container-low rounded-xl p-4 group cursor-pointer" data-route="/shop">
+<div class="aspect-[4/5] rounded-lg overflow-hidden mb-4 relative bg-surface-container-lowest">
+<img alt="Dây đểt b?n" class="w-full h-full object-cover group-hover:scale-105 transition-transform" data-alt="Braided tug rope accessory image" src="/images/products/tug-rope-1.webp"/>
+</div>
+<div class="flex justify-between items-start">
+<div>
+<h4 class="font-bold text-on-surface">Dây đểt dây thẻng b?n</h4>
+<p class="text-xs text-on-surface-variant">Ph? ki?n</p>
+</div>
+<span class="font-bold text-secondary-container">$24.50</span>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="bg-surface-container-low rounded-xl p-4 group cursor-pointer" data-route="/shop">
+<div class="aspect-square rounded-lg overflow-hidden mb-4 relative bg-surface-container-lowest">
+<img alt="Ṿng c? no" class="w-full h-full object-cover group-hover:scale-105 transition-transform" data-alt="Bow collar accessory image" src="/images/products/bow-collar-1.webp"/>
+<div class="absolute top-3 right-3">
+<span class="bg-secondary-container text-on-secondary-container text-[10px] font-bold px-2 py-1 rounded-sm uppercase tracking-tighter">Gi?m giá</span>
+</div>
+</div>
+<div class="flex justify-between items-start">
+<div>
+<h4 class="font-bold text-on-surface">Bow Tie Collar</h4>
+<p class="text-xs text-on-surface-variant">Ph? ki?n</p>
+</div>
+<span class="font-bold text-secondary-container">$15.80</span>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Sticky Purchase Bar -->
+<div class="fixed bottom-0 left-0 w-full bg-surface-container-lowest shadow-[0_-8px_30px_rgb(0,0,0,0.04)] z-40 md:py-4 py-6 border-none">
+<div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-4">
+<div class="hidden md:flex items-center gap-4">
+<div class="w-12 h-12 rounded-lg overflow-hidden bg-surface-container-low">
+<img alt="Xem nhanh s?n ph?m cá h?i" class="w-full h-full object-cover" data-alt="Sticky bar preview for salmon product" src="/images/products/salmon-bites-2.webp"/>
+</div>
+<div>
+<p class="font-bold text-sm text-on-surface leading-none">B?a ti?c cá h?i không ngu c?c</p>
+<p class="text-xs text-on-surface-variant">Túi 4.5kg</p>
+</div>
+</div>
+<div class="flex items-center w-full md:w-auto gap-4">
+<div class="flex items-center bg-surface-container-low rounded-full px-4 py-2">
+<button class="w-8 h-8 flex items-center justify-center text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-sm">remove</span>
+</button>
+<span class="w-12 text-center font-bold">1</span>
+<button class="w-8 h-8 flex items-center justify-center text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-sm">add</span>
+</button>
+</div>
+<button class="flex-1 md:flex-none bg-primary text-on-primary px-10 py-3.5 rounded-full font-bold text-sm tracking-wide shadow-lg shadow-primary/20 hover:scale-[1.02] active:scale-95 transition-all">
+                    Thêm vào gi? • $48.00
+                </button>
+</div>
+</div>
+</div>
+<!-- Footer -->
+<footer class="w-full rounded-t-[3rem] mt-20 bg-slate-50 dark:bg-slate-950 border-t border-slate-100 dark:border-slate-800">
+<div class="flex flex-col md:flex-row justify-between items-center px-12 py-16 gap-8 max-w-7xl mx-auto">
+<div class="flex flex-col items-center md:items-start">
+<p class="text-sm font-light leading-relaxed text-slate-500 dark:text-slate-400 text-center md:text-left">© 2024 PETT.</p>
+</div>
+<div class="flex flex-wrap justify-center gap-8 text-sm font-light leading-relaxed">
+<a class="text-slate-500 dark:text-slate-400 hover:text-coral-500 transition-colors opacity-80 hover:opacity-100" href="#">Chính sách bảo mật</a>
+<a class="text-slate-500 dark:text-slate-400 hover:text-coral-500 transition-colors opacity-80 hover:opacity-100" href="#">Đi?u kho?n đểch v?</a>
+</div>
+<div class="flex gap-4">
+<div class="w-10 h-10 rounded-full bg-slate-200 dark:bg-slate-800 flex items-center justify-center cursor-pointer hover:bg-teal-500 hover:text-white transition-all">
+<span class="material-symbols-outlined text-xl" data-icon="mail">mail</span>
+</div>
+</div>
+</div>
+</footer>
+</body></html>
+
+
+
+
+
+
+
+
+
+
+
