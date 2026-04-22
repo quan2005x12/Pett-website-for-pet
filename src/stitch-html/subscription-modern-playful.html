@@ -6,7 +6,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Be+Vietnam+Pro:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
     <script id="tailwind-config">
           tailwind.config = {
             darkMode: "class",
@@ -21,320 +20,138 @@
                         headline: ["Plus Jakarta Sans"],
                         body: ["Be Vietnam Pro"],
                     }
-                },
-            },
-          }
-        </script>
-    <style>
-        .material-symbols-outlined {
-            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
-        }
-        body { font-family: 'Be Vietnam Pro', sans-serif; background: #000; overflow-x: hidden; }
-        
-        .plans-section {
-            min-height: 100dvh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            padding-top: clamp(80px, 12vh, 120px);
-            padding-bottom: clamp(40px, 8vh, 80px);
-            position: relative;
-        }
-
-        /* Fluid Typography and Spacing */
-        .subscription-title {
-            font-size: clamp(1.8rem, 5vh + 0.5rem, 4.5rem);
-            line-height: 1.1;
-        }
-        .subscription-subtitle {
-            font-size: clamp(0.9rem, 1.2vh + 0.2rem, 1.25rem);
-        }
-
-        /* Glassmorphism Card 2.0 */
-        .glass-card {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            border: 1.5px solid rgba(255, 255, 255, 0.12);
-            border-radius: 3rem;
-            padding: clamp(1.5rem, 4vh, 3rem);
-            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
-            display: flex;
-            flex-direction: column;
-            height: 100%;
-            position: relative;
-        }
-
-        /* Responsive Grid with constraint */
-        .plan-grid {
-            display: grid;
-            grid-template-columns: repeat(3, minmax(0, 1fr));
-            gap: clamp(0.75rem, 1.5vw, 2rem);
-            max-width: 1300px;
-            margin: 0 auto;
-            width: 100%;
-        }
-
-        /* Lists and font constraints */
-        .plan-list-item {
-            font-size: clamp(0.95rem, 0.65vw + 0.6rem, 1.15rem);
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            line-height: 1.45;
-        }
-
-        .plan-cta {
-            margin-top: auto;
-            min-height: clamp(3.25rem, 6vh, 4.5rem);
-            padding-inline: clamp(1.25rem, 3vw, 2rem);
-            border-radius: 9999px;
-            border: 1.5px solid rgba(20, 184, 166, 0.62);
-            background:
-                linear-gradient(135deg, rgba(3, 27, 24, 0.78), rgba(11, 73, 65, 0.38));
-            color: #22d3c5;
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            font-weight: 800;
-            font-size: clamp(0.95rem, 0.55vw + 0.75rem, 1.2rem);
-            letter-spacing: -0.01em;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow:
-                inset 0 0 24px rgba(20, 184, 166, 0.12),
-                0 8px 24px rgba(0, 0, 0, 0.22);
-            transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease, color 0.25s ease;
-        }
-
-        .plan-cta:hover {
-            transform: translateY(-2px);
-            border-color: rgba(45, 212, 191, 0.92);
-            background: linear-gradient(135deg, rgba(20, 184, 166, 0.95), rgba(0, 107, 95, 0.95));
-            color: #ffffff;
-            box-shadow:
-                inset 0 0 30px rgba(45, 212, 191, 0.2),
-                0 14px 30px rgba(0, 0, 0, 0.34),
-                0 0 30px rgba(20, 184, 166, 0.2);
-        }
-
-        .plan-price-text {
-            font-size: clamp(2rem, 5vh, 3.5rem);
-        }
-
-        @media (max-width: 1023px) {
-            .plan-grid {
-                grid-template-columns: 1fr;
-                max-width: 500px;
-                padding-inline: 1.5rem;
+                }
             }
-            .plans-section { height: auto; min-height: 100vh; }
-        }
-
-        .reveal-up {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: all 0.7s ease-out;
-        }
-        .reveal-up.is-visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .text-glow {
-            text-shadow: 0 0 20px rgba(20, 184, 166, 0.3);
-        }
-
+          }
+    </script>
+    <style>
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        body { font-family: 'Be Vietnam Pro', sans-serif; background: #fbfaee; color: #1b1c15; }
+        .glass-card { background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 2.5rem; transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1); }
+        .plan-card-basic { background: #ffffff; border: 1.5px solid #efeee3; }
+        .plan-card-pro { background: linear-gradient(135deg, #006b5f 0%, #14b8a6 100%); color: white; }
+        .plan-card-vip { background: #ffffff; border: 1.5px solid #efeee3; }
+        .reveal-up { opacity: 0; transform: translateY(30px); transition: all 0.8s ease-out; }
+        .reveal-up.active { opacity: 1; transform: translateY(0); }
         .bg-noise {
-            position: fixed;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
-            background: url("https://grainy-gradients.vercel.app/noise.svg");
-            opacity: 0.03;
-            pointer-events: none;
-            z-index: 1;
-        }
-
-        /* Hover Effects (Moved here to avoid override by reveal-up) */
-        .glass-card:hover {
-            background: rgba(255, 255, 255, 0.1) !important;
-            border: 1.5px solid rgba(255, 255, 255, 0.4) !important;
-            transform: translateY(-25px) !important;
-            transition: all 0.25s ease-out !important;
-            box-shadow: 
-                0 40px 80px rgba(0, 0, 0, 0.6),
-                0 0 40px rgba(20, 184, 166, 0.2);
-            z-index: 50;
-        }
-
-        .glass-card-popular:hover {
-            transform: translateY(-25px) scale(1.06) !important;
-        }
-
-        .glass-card-popular {
-            background: rgba(0, 107, 95, 0.15);
-            border: 2px solid rgba(20, 184, 166, 0.5) !important;
-            box-shadow: 0 0 40px rgba(0, 107, 95, 0.2);
-            transform: scale(1.04);
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+            opacity: 0.05; pointer-events: none; z-index: 1;
         }
     </style>
 </head>
-<body class="bg-black text-white selection:bg-primary/30">
+<body class="pt-24 pb-32 px-6">
     <div class="bg-noise"></div>
+    
+    <div class="max-w-7xl mx-auto relative z-10">
+        <header class="text-center mb-20 reveal-up">
+            <h1 class="text-5xl md:text-7xl font-headline font-black text-primary tracking-tight mb-6">Gói Chăm Sóc Định Kỳ</h1>
+            <p class="text-lg md:text-xl text-on-surface-variant max-w-2xl mx-auto font-medium leading-relaxed">
+                Tiết kiệm hơn, chăm sóc tốt hơn. PETT đồng hành cùng thú cưng của bạn mỗi tháng.
+            </p>
+        </header>
 
-    <!-- Navigation -->
-    <nav class="fixed top-0 w-full z-50 bg-black/40 backdrop-blur-xl">
-        <div class="flex justify-between items-center w-full px-6 py-4 max-w-7xl mx-auto">
-            <a class="text-4xl font-black tracking-tighter text-primary-light font-headline uppercase" href="/" data-route="/">PETT</a>
-            <div class="hidden md:flex items-center gap-2 font-label text-sm font-semibold tracking-tight">
-                <a class="px-5 py-2 rounded-full text-white/90 hover:bg-white/10 hover:text-primary-light transition-all duration-200" href="/shop" data-route="/shop">Cửa hàng</a>
-                <a class="px-5 py-2 rounded-full text-white/90 hover:bg-white/10 hover:text-primary-light transition-all duration-200" href="/blog" data-route="/blog">Blog</a>
-                <a class="px-5 py-2 rounded-full bg-primary text-white shadow-md shadow-primary/30 font-bold" href="/goi-dinh-ky" data-route="/goi-dinh-ky">Gói định kỳ</a>
-            </div>
-            <div class="flex items-center gap-4">
-                <a href="/login" data-route="/login" class="p-2 text-white/60 hover:bg-white/10 hover:text-white rounded-full transition-all active:scale-95 active:opacity-80">
-                    <span class="material-symbols-outlined">person</span>
-                </a>
-            </div>
-        </div>
-    </nav>
-
-    <main class="plans-section px-6">
-        <!-- Cinematic Background -->
-        <div class="fixed inset-0 z-0">
-            <video id="subscription-bg-video" autoplay muted loop playsinline class="w-full h-full object-cover opacity-50"></video>
-            <div class="absolute inset-0 bg-gradient-to-b from-black/80 via-black/30 to-black/90"></div>
-        </div>
-
-        <div class="relative z-10 w-full text-center mb-[clamp(3rem,10vh,6rem)] reveal-up">
-            <h2 class="subscription-title font-black text-white tracking-tighter mb-2 text-glow">Lựa chọn gói phù hợp</h2>
-        </div>
-
-        <div class="plan-grid relative z-10">
-            <!-- Plus Plan -->
-            <div class="glass-card reveal-up" style="transition-delay: 100ms;">
-                <div class="mb-6">
-                    <h3 class="text-xl font-black text-white mb-1">Gói Plus</h3>
-                    <p class="text-[11px] text-white/40 uppercase font-bold tracking-widest">Entry Level</p>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch">
+            <!-- Basic Plan -->
+            <div class="plan-card-basic p-10 flex flex-col group reveal-up rounded-[3rem]">
+                <div class="grow">
+                    <div class="w-20 h-20 bg-primary/10 rounded-3xl flex items-center justify-center mb-8">
+                        <span class="material-symbols-outlined text-4xl text-primary">potted_plant</span>
+                    </div>
+                    <h2 class="text-3xl font-headline font-black mb-2">Basic Care</h2>
+                    <div class="flex items-baseline gap-1 mb-8">
+                        <span class="text-4xl font-black text-primary">499.000đ</span>
+                        <span class="text-sm font-bold text-on-surface-variant">/tháng</span>
+                    </div>
+                    <ul class="space-y-4 mb-10">
+                        <li class="flex items-start gap-3">
+                            <span class="material-symbols-outlined text-primary text-xl">check_circle</span>
+                            <span class="font-medium">Thức ăn hạt cao cấp (3kg)</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="material-symbols-outlined text-primary text-xl">check_circle</span>
+                            <span class="font-medium">Cát vệ sinh / Tã lót</span>
+                        </li>
+                    </ul>
                 </div>
-                <div class="mb-6">
-                    <span class="plan-price-text font-black text-white tracking-tighter">599k</span>
-                    <span class="text-sm font-medium text-white/30">/ tháng</span>
-                </div>
-                <ul class="space-y-4 mb-8">
-                    <li class="plan-list-item">
-                        <span class="material-symbols-outlined text-primary-light text-lg" style="font-variation-settings: 'FILL' 1;">check_circle</span>
-                        <span class="text-white/70">1 túi thức ăn dinh dưỡng</span>
-                    </li>
-                    <li class="plan-list-item">
-                        <span class="material-symbols-outlined text-primary-light text-lg" style="font-variation-settings: 'FILL' 1;">check_circle</span>
-                        <span class="text-white/70">Miễn phí giao hàng</span>
-                    </li>
-                    <li class="plan-list-item">
-                        <span class="material-symbols-outlined text-primary-light text-lg" style="font-variation-settings: 'FILL' 1;">check_circle</span>
-                        <span class="text-white/70">Tặng 1 đồ chơi tương tác phù hợp cân nặng</span>
-                    </li>
-                </ul>
-                <button class="plan-cta w-full" data-route="/checkout" data-subscription-id="plan-plus" data-subscription-name="Gói Plus" data-subscription-description="Gói cơ bản hằng tháng" data-subscription-price="599000" data-subscription-image="/images/pett-bag.webp">Đăng kí</button>
+                <button data-route="/checkout-subscription" data-subscription-id="plan-basic" data-subscription-name="Basic Care" data-subscription-price="499000" data-subscription-description="Gói chăm sóc cơ bản hàng tháng" class="w-full py-5 bg-primary text-white font-black text-lg rounded-2xl hover:scale-105 transition-all">Đăng ký ngay</button>
             </div>
 
-            <!-- Pro Plan (Featured) -->
-            <div class="glass-card glass-card-popular reveal-up relative" style="transition-delay: 200ms;">
-                <div class="absolute -top-4 left-1/2 -translate-x-1/2 px-5 py-1.5 bg-primary text-white text-[10px] font-black tracking-[0.2em] rounded-full uppercase shadow-xl shadow-primary/20 z-20">Phổ biến</div>
-                <div class="mb-6">
-                    <h3 class="text-2xl font-black text-primary-light mb-1">Gói Pro</h3>
-                    <p class="text-[11px] text-white/60 uppercase font-bold tracking-widest">Best Value</p>
+            <!-- Pro Plan -->
+            <div class="plan-card-pro p-10 flex flex-col group reveal-up relative rounded-[3rem] shadow-2xl shadow-primary/20 scale-105 z-20">
+                <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-white text-primary px-6 py-2 rounded-full font-black text-xs uppercase tracking-widest shadow-xl">Phổ biến nhất</div>
+                <div class="grow">
+                    <div class="w-20 h-20 bg-white/20 rounded-3xl flex items-center justify-center mb-8">
+                        <span class="material-symbols-outlined text-4xl text-white">award_star</span>
+                    </div>
+                    <h2 class="text-3xl font-headline font-black mb-2">Pro Care</h2>
+                    <div class="flex items-baseline gap-1 mb-8">
+                        <span class="text-4xl font-black text-white">899.000đ</span>
+                        <span class="text-sm font-bold text-white/70">/tháng</span>
+                    </div>
+                    <ul class="space-y-4 mb-10">
+                        <li class="flex items-start gap-3">
+                            <span class="material-symbols-outlined text-white/50 text-xl">verified</span>
+                            <span class="font-medium">Toàn bộ gói Basic</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="material-symbols-outlined text-white/50 text-xl">verified</span>
+                            <span class="font-medium">Combo Snack & Treats</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="material-symbols-outlined text-white/50 text-xl">verified</span>
+                            <span class="font-medium">Sữa tắm chuyên dụng</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="material-symbols-outlined text-white text-xl">percent</span>
+                            <span class="font-black text-white">GIẢM GIÁ 10% TOÀN SHOP</span>
+                        </li>
+                    </ul>
                 </div>
-                <div class="mb-6">
-                    <span class="plan-price-text font-black text-white tracking-tighter">998k</span>
-                    <span class="text-sm font-medium text-white/30">/ tháng</span>
-                </div>
-                <ul class="space-y-4 mb-8">
-                    <li class="plan-list-item">
-                        <span class="material-symbols-outlined text-primary-light text-xl" style="font-variation-settings: 'FILL' 1;">stars</span>
-                        <span class="text-white font-bold">Toàn bộ đặc quyền gói Plus</span>
-                    </li>
-                    <li class="plan-list-item">
-                        <span class="material-symbols-outlined text-primary-light text-lg" style="font-variation-settings: 'FILL' 1;">check_circle</span>
-                        <span class="text-white/90">Bổ sung snack/pate dinh dưỡng</span>
-                    </li>
-                    <li class="plan-list-item">
-                        <span class="material-symbols-outlined text-primary-light text-lg" style="font-variation-settings: 'FILL' 1;">check_circle</span>
-                        <span class="text-white/90">Tặng 1 phụ kiện ngẫu nhiên</span>
-                    </li>
-                    <li class="plan-list-item">
-                        <span class="material-symbols-outlined text-primary-light text-lg" style="font-variation-settings: 'FILL' 1;">check_circle</span>
-                        <span class="text-white/90">Ưu tiên giao trong ngày tại nội thành</span>
-                    </li>
-                </ul>
-                <button class="plan-cta w-full" data-route="/checkout" data-subscription-id="plan-pro" data-subscription-name="Gói Pro" data-subscription-description="Gói chăm sóc cân bằng dinh dưỡng" data-subscription-price="998000" data-subscription-image="/images/pett-bag.webp">Đăng kí</button>
+                <button data-route="/checkout-subscription" data-subscription-id="plan-pro" data-subscription-name="Pro Care" data-subscription-price="899000" data-subscription-description="Gói chăm sóc nâng cao hàng tháng" class="w-full py-5 bg-white text-primary font-black text-lg rounded-2xl hover:scale-105 transition-all">Đăng ký ngay</button>
             </div>
 
-            <!-- Ultra Plan -->
-            <div class="glass-card reveal-up" style="transition-delay: 300ms;">
-                <div class="mb-6">
-                    <h3 class="text-xl font-black text-white mb-1">Gói Ultra</h3>
-                    <p class="text-[11px] text-white/40 uppercase font-bold tracking-widest">Luxury Care</p>
+            <!-- VIP Plan -->
+            <div class="plan-card-vip p-10 flex flex-col group reveal-up rounded-[3rem]">
+                <div class="grow">
+                    <div class="w-20 h-20 bg-primary/10 rounded-3xl flex items-center justify-center mb-8">
+                        <span class="material-symbols-outlined text-4xl text-primary">workspace_premium</span>
+                    </div>
+                    <h2 class="text-3xl font-headline font-black mb-2">VIP Care</h2>
+                    <div class="flex items-baseline gap-1 mb-8">
+                        <span class="text-4xl font-black text-primary">1.499.000đ</span>
+                        <span class="text-sm font-bold text-on-surface-variant">/tháng</span>
+                    </div>
+                    <ul class="space-y-4 mb-10">
+                        <li class="flex items-start gap-3">
+                            <span class="material-symbols-outlined text-primary text-xl">verified</span>
+                            <span class="font-medium">Toàn bộ gói Pro</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="material-symbols-outlined text-primary text-xl">verified</span>
+                            <span class="font-medium">Thực phẩm chức năng</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="material-symbols-outlined text-primary text-xl">verified</span>
+                            <span class="font-medium">Quà tặng đồ chơi cao cấp</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="material-symbols-outlined text-[#ff6b6b] text-xl">percent</span>
+                            <span class="font-black text-[#ff6b6b]">GIẢM GIÁ 15% TOÀN SHOP</span>
+                        </li>
+                    </ul>
                 </div>
-                <div class="mb-6">
-                    <span class="plan-price-text font-black text-white tracking-tighter">1.998k</span>
-                    <span class="text-sm font-medium text-white/30">/ tháng</span>
-                </div>
-                <ul class="space-y-4 mb-8">
-                    <li class="plan-list-item">
-                        <span class="material-symbols-outlined text-primary-light text-xl" style="font-variation-settings: 'FILL' 1;">verified</span>
-                        <span class="text-white font-bold">Toàn bộ đặc quyền gói Pro</span>
-                    </li>
-                    <li class="plan-list-item">
-                        <span class="material-symbols-outlined text-primary-light text-lg" style="font-variation-settings: 'FILL' 1;">check_circle</span>
-                        <span class="text-white/70">1 buổi grooming tại nhà mỗi tháng</span>
-                    </li>
-                    <li class="plan-list-item">
-                        <span class="material-symbols-outlined text-primary-light text-lg" style="font-variation-settings: 'FILL' 1;">check_circle</span>
-                        <span class="text-white/70">Hỗ trợ y tế 24/7</span>
-                    </li>
-                    <li class="plan-list-item">
-                        <span class="material-symbols-outlined text-primary-light text-lg" style="font-variation-settings: 'FILL' 1;">check_circle</span>
-                        <span class="text-white/70">Giảm 10% dịch vụ tắm, cắt tỉa tại cửa hàng</span>
-                    </li>
-                </ul>
-                <button class="plan-cta w-full" data-route="/checkout" data-subscription-id="plan-ultra" data-subscription-name="Gói Ultra" data-subscription-description="Gói chăm sóc chuyên sâu toàn diện" data-subscription-price="1998000" data-subscription-image="/images/pett-bag.webp">Đăng kí</button>
+                <button data-route="/checkout-subscription" data-subscription-id="plan-vip" data-subscription-name="VIP Care" data-subscription-price="1499000" data-subscription-description="Gói chăm sóc toàn diện cao cấp" class="w-full py-5 bg-primary text-white font-black text-lg rounded-2xl hover:scale-105 transition-all">Đăng ký ngay</button>
             </div>
         </div>
-    </main>
-
-    <!-- Footer removed as per user request -->
+    </div>
 
     <script>
-        (() => {
-            const initAnimations = () => {
-                const observer = new IntersectionObserver((entries) => {
-                    entries.forEach(entry => {
-                        if (entry.isIntersecting) entry.target.classList.add('is-visible');
-                    });
-                }, { threshold: 0.1 });
-                document.querySelectorAll('.reveal-up').forEach(el => observer.observe(el));
-            };
-
-            const initBgVideo = () => {
-                const video = document.getElementById('subscription-bg-video');
-                const videoSrc = 'https://stream.mux.com/Kec29dVyJgiPdtWaQtPuEiiGHkJIYQAVUJcNiIHUYeo.m3u8';
-                if (Hls.isSupported()) {
-                    const hls = new Hls();
-                    hls.loadSource(videoSrc);
-                    hls.attachMedia(video);
-                    hls.on(Hls.Events.MANIFEST_PARSED, () => video.play().catch(() => {}));
-                } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
-                    video.src = videoSrc;
-                    video.addEventListener('loadedmetadata', () => video.play().catch(() => {}));
-                }
-            };
-
-            initAnimations();
-            initBgVideo();
-        })();
+        const observerOptions = { threshold: 0.1 };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('active'); });
+        }, observerOptions);
+        document.querySelectorAll('.reveal-up').forEach(el => observer.observe(el));
     </script>
 </body>
 </html>
-
-
-
